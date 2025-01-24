@@ -1,0 +1,47 @@
+\section{Methodology/Implementation}\label{sec:Method-Implem}
+
+
+\subsection{Programming Language}
+I plan to program this in C++, as that is one of the languages that I am more familiar with (along with C), and it is also one of the main languages that is used in physics nowadays. Further, interpreted languages like Python usually end up being too slow for intense simulations like this. For this project it likely would have been fine, especially if I was able to implement anything on the GPU, but C++ has GPU programming toolets anyway (like CUDA), though a bit more cumbersome to use. Further, the existing tools I plan to use for my project have their main API in C++ with the Python version usually being more of a side-thought, so it is more favorable in that regard as well.
+
+
+\subsection{Other Tools and Frameworks}
+
+I would really like to interface with ROOT, a tool used by CERN for data processing, but it is an absolutely massive package, weighing it at several gigabytes after unpacking and compiling. Since I'd only use it for a small subset of its data storage and histogram functionality, I will instead implement my own method of data storage and interface with Gnuplot, a much more lightweight package intended only for plotting things.
+
+I will also use \textsc{LHAPDF}, a package used to interface with \textit{parton distribution functions} (PDFs). These are used to describe the structure of the proton, specifically the probability of finding different quarks within the proton given some momentum fraction $x$. This has to be done this way, by which I mean interfacing with some external package, because the PDFs are not able to be calculated on their own; they have to be determined from experiment and encoded in data file. I could, in princple, make my own parser for these data files, but that would be besides the point of this project and would likely take too long anyway.
+
+
+
+\subsection{Basic Model Approach/Design}
+
+I currently only have a rough idea of the model, since I am very busy with delving into papers, articles, and documentation of similar simulation suites like \textsc{Pythia8} (\cite{PYTHIA8DOC}) to wrap my head around the process and the physics behind it; it's a bit more challenging of a process to model than something like the carwash, so I haven't had time to really formulate much of the model itself yet.
+
+My current idea is that I will model each event that occurs with an \mintinline{cpp}{Event} class, and it will contain information related to the number of particles that were involved; the energy of the collision or decay; if it was a decay, or any process by which the states of the particles changed in any way, it will store that as well as energy absorbed/released, and many other kinematic variables. Each particle will also have its own class, with information specific to that particle as well as its role in the process and each event. Different types of particles, like the leptons, quarks, and bosons, will likely have their own class, perhaps inheriting from some central \mintinline{cpp}{Particle} class.
+
+Particles and events will have methods that interface with either a class with static methods or a namespace of functions in which I implement all of the mathematical subroutines required for determining quantities of interest like energy and so on. This separate translation unit will be for the purely mathematical functions that have no particular relation to event generators such as interpolation routines and so on. Other mathematical functions relating specifically to event generators like Monte Carlo integration routines will be included via a separate class/static methods or namespace/functions that is more closely tied to the simulation process/class.
+
+During all of this, I will be storing all of the data for each individual event, taking into account many of the things present in the event class. This may take the form of a method in the event class called \mintinline{cpp}{store()} or something, where it consolidates the information about the event and places it in another class I'll probably call an \mintinline{cpp}{Ntuple}. This is the name of the class that ROOT uses to store floating point data. Further, there will also be logging going on, where each event will trigger the main process class to output information regarding the status of the simulation to the console and/or some dedicated log file.
+
+Lastly, once all of this has finished and data has been consolidated in any number of ntuples, I will interface with Gnuplot to plot the data. Gnuplot, in particular, is primarily a command-line tool, so I will likely create some class structure to generate commands and data files and then fork a process that calls Gnuplot with those commands (that terminology may not be correct, but hopefully it captures my point). Also at this time data will be consolidated into an LHEF file.
+
+
+
+\subsection{Graphical Diagrams}
+
+As of writing, I have not formulated enough parts of the project to confidently put together any sort of UML or other graphical diagram to illustrate the model structure.
+
+
+\subsection{Current Challenges}
+
+At the moment, one of the largest challenges is that all of the documentation on the internet for event generators like these is either extremely low-level, spanning hundred of pages and often jumping right to NLO or NNLO implementations of things, or it is extremely high-level, where it is formed almost like a tutorial of sorts, and the end product is the implementation of one single process at one order with a very small subset of observable results. Of course, I will be unable to extensively use and rely on the latter documentation, and I will have to continue searching as well as dissecting the former documentation for clues on how to proceed.
+
+Fortunately, there is a professor here at KSU who is quite familiar with these tools, and has actually worked quite a lot on an event generator and parton showering program called \textsc{Herwig7}. He works in an adjacent department to the one I do research in, and I have had two classes with him and had many discussions on things after/before class, so he will be a very approachable resource for information on this topic.
+
+
+
+
+%%% Local Variables:
+%%% mode: LaTeX
+%%% TeX-master: "../../ProjectProposal"
+%%% End:
