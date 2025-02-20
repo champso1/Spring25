@@ -1,1 +1,0 @@
-/usr/bin/c++ CMakeFiles/main.dir/src/ConfigFile.cc.o CMakeFiles/main.dir/src/Logger.cc.o CMakeFiles/main.dir/src/Utils.cc.o CMakeFiles/main.dir/src/main.cc.o -o main 

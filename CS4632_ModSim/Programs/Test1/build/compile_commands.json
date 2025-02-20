@@ -1,7 +1,0 @@
-[
-{
-  "directory": "/home/champson/Dropbox/School/Spring25/CS4632_ModSim/Testing/Test1/build",
-  "command": "/usr/bin/c++  -I/home/champson/Dropbox/School/Spring25/CS4632_ModSim/Testing/Test1/include -isystem /home/champson/Software/gsl-2.8/install/include  -o CMakeFiles/main.dir/src/main.cpp.o -c /home/champson/Dropbox/School/Spring25/CS4632_ModSim/Testing/Test1/src/main.cpp",
-  "file": "/home/champson/Dropbox/School/Spring25/CS4632_ModSim/Testing/Test1/src/main.cpp"
-}
-]

@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/champson/Dropbox/School/Spring25/CS4632_ModSim/Testing/Test1/include -isystem /home/champson/Software/gsl-2.8/install/include
+CXX_INCLUDES = -I/home/champson/Dropbox/School/Spring25/CS4632_ModSim/Programs/Test1/include -isystem /home/champson/Software/LHAPDF-6.5.4/install/include
 
-CXX_FLAGS = 
+CXX_FLAGS = -O3
 

@@ -1,0 +1,8 @@
+[
+{
+  "directory": "/home/champson/Dropbox/School/Spring25/CS4632_ModSim/Programs/Test2/cpp/build",
+  "command": "/usr/bin/c++  -I/home/champson/Dropbox/School/Spring25/CS4632_ModSim/Programs/Test2/cpp/include -I/home/champson/Software/LHAPDF-6.5.4/install/include -I/home/champson/Software/gsl-2.8/install/include -O3 -o CMakeFiles/main.dir/src/main.cpp.o -c /home/champson/Dropbox/School/Spring25/CS4632_ModSim/Programs/Test2/cpp/src/main.cpp",
+  "file": "/home/champson/Dropbox/School/Spring25/CS4632_ModSim/Programs/Test2/cpp/src/main.cpp",
+  "output": "CMakeFiles/main.dir/src/main.cpp.o"
+}
+]

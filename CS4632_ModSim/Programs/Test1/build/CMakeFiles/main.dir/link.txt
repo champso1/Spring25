@@ -1,1 +1,1 @@
-/usr/bin/c++ CMakeFiles/main.dir/src/main.cpp.o -o main  -Wl,-rpath,/home/champson/Software/gsl-2.8/install/lib /home/champson/Software/gsl-2.8/install/lib/libgsl.so /home/champson/Software/gsl-2.8/install/lib/libgslcblas.so -lm 
+/usr/bin/c++ CMakeFiles/main.dir/src/main.cpp.o -o main  -Wl,-rpath,/home/champson/Software/LHAPDF-6.5.4/install/lib /home/champson/Software/LHAPDF-6.5.4/install/lib/libLHAPDF.so 
