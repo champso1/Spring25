@@ -1,0 +1,13 @@
+Solid State:
+	- start formulating project proposal thing (N/A)
+	- work a teeny bit on the HW (February)
+
+Quantum:
+	- HW (Tuesday)
+
+ModSim:
+	- Reading and programming (N/A)
+	  + specifically, Gnuplot interface and Ntuple stuff
+
+Research:
+	- read, read, read (N/A)
