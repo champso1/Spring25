@@ -1,0 +1,2 @@
+/usr/bin/ar qc libColSim_Math.a CMakeFiles/ColSim_Math.dir/src/MonteCarlo.cpp.o
+/usr/bin/ranlib libColSim_Math.a

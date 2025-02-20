@@ -1,0 +1,2 @@
+/usr/bin/ar qc libColSim_Core.a CMakeFiles/ColSim_Core.dir/src/Logger.cpp.o CMakeFiles/ColSim_Core.dir/src/Settings.cpp.o CMakeFiles/ColSim_Core.dir/src/Utils.cpp.o
+/usr/bin/ranlib libColSim_Core.a

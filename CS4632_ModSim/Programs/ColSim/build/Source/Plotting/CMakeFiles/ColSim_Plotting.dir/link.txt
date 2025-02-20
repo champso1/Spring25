@@ -1,0 +1,2 @@
+/usr/bin/ar qc libColSim_Plotting.a CMakeFiles/ColSim_Plotting.dir/src/Gnuplot.cpp.o
+/usr/bin/ranlib libColSim_Plotting.a
