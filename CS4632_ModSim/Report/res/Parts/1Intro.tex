@@ -1,0 +1,66 @@
+\section{Introduction}
+
+In Sec.~\ref{sec:PP-Collisions} and Sec.~\ref{sec:Sim-Considerations} I briefly describe the motivation for wanting to simulate proton-proton collisions and the theory behind the considerations that must be taken to model such a process. In Sec.~\ref{sec:Theory-Lit-Review}, I give a brief literature review and discussion of the mathematical structure underpinning these types of simulations, as well as some initial basic results and comparisons between \textsc{MadGraph5}. In Sec.~\ref{sec:Model-Implem-Details} I give a description of the model structure as it is currently laid out, as well as the external tools and programming language I will use. Lastly, in Sec.~\ref{sec:Timeline} I will give an overview of the current timeline and what things will be implemented next.
+
+
+\subsection{Proton-Proton Collisions}\label{sec:PP-Collisions}
+
+
+
+The goal of high-energy/particle physics is to try and understand how the universe works on a fundamental scale. One of the main ways we do this is by accelerating protons to near the speed of light, and colliding them together. This is done at CERN in Geneva, Switzerland, in what is called the Large Hadron Collider (LHC). The purpose of doing these extremely energetic collisions is to try and analyze the thousands of particles that fly out in all different directions and their subsequent decays and interactions to try and gauge what exactly happened in the collision. By analyzing the final-state stable particles, we can reconstruct various quantities and make plots and other predictions. As an example, if a heavy particle decays into two new, lighter, and more stable particles, we can analyze their energy and their paths once they reach the detector and determine (roughly) where/when the particle decayed and how massive it was. This is the essential recipe for discovering new particles, which is one of the main goals of the LHC.
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=0.6\linewidth]{./res/Images/higgs.jpg}
+  \caption{Invariant 4-lepton invariant mass of reconstructed events in the ATLAS detector for $H \rightarrow ZZ* \rightarrow 4\ell$ process, the famous plot signifying the presence of the Higgs boson.}
+  \label{fig:higgs}
+\end{figure}
+
+An example of one such plot is given in Fig.~\ref{fig:higgs}. A simulation (rather, a ridiculously large number of them) was carried out that modeled the creation of a Higgs boson, its decay into a two $Z$ bosons, and their decay into four charged leptons, and the resultant distributions of the invariant mass of the four leptons were recorded and plotted. The normal production of the two $Z$ bosons is shown in red, and the process involving the preceding Higgs is shown in blue. This comparison between the \textit{signal}, the process in question, and the \textit{background}, the expected results from the process without the new particle, is what illuminates new particles. The invariant mass at the blue peak in this plot is equal to the mass of the Higgs boson, and the statistical uncertaintly is good enough to conclude, beyond a shadow of a doubt, that this particle exists. This particular plot came from more recent studies into cleaner Higgs production processes, but a similar-looking distribution was found back in 2012, and similar, real detector data was produced shortly after that confirmed the existance of the Higgs boson. See Ref.~\cite{Aad_2020} for more information.
+
+Evidently, it is extremely helpful to have a theoretical framework that is able to match what is seen in the detectors so that we can make predictions with that framework in the same as well as adjacent contexts. This calls for the usage of complex simulation programs that model the entire chain of events starting from the ``hard scattering'' process, which is the initial collision, all the way to simulating the detector structure and how it behaves when the particles from the collision fly through it using this theoretical framework. We then read the output that the simulated detector shows us, and we can analyze the exact same things as done in experiment to make very accurate comparisons and predictions.
+
+The reason that this must be \textit{simulated}, rather than just plugged into a calculator or some mathematical subroutine, is due to the myriad considerations that must be taken into account when talking about particle interactions at such a small scale. There are a number of different forces at play, namely the strong nuclear force, the weak nuclear force, and the electromagnetic nuclear force. Additionally, the sheer number of particles present in the system at any given time is large enough that our analytical equations simply cannot be solved by any known method without taking insanely crude approximations, which would ruin the main goal of acquiring physically sensible results.
+
+
+\subsection{Simulation Considerations}\label{sec:Sim-Considerations}
+
+As one would expect, though, simulating these processes is still a huge challenge. As mentioned before, it is not simply a matter of momentum/energy conservation and other simple properties; there are a multitude of quantum mechanical phenomena that occur on this energy scale, the most notable of which come from Quantum Chromodynamics (QCD), or the strong force. Essentially, the constituents of protons, which are called \textit{quarks}, experience a force similar to that of normal electromagnetism, but opposite in some respects. For instance, bringing two electrons closer together increases the repulsion between them, since like charges repel. Similarly, bringing a proton and an electron closer together will increase the attraction between the two. Quarks, on the other hand, have the opposite property, where the closer you bring them together the less they feel like doing anything at all, and the further you bring them apart, the stronger the force between them becomes. This force is so strong that they actually cannot exist on their own: if you try and break two of them apart, at some point the energy required will be so high that two entirely new quarks will spontaneously form and bind with the two existing quarks and create new states called \textit{hadrons}, of which protons and neutrons are examples. This is manifested mathematically in that the strong/QCD coupling, $\alpha_s$, when evaluated at larger energy scales is smaller than when it is evaluated at smaller energy scales.
+
+The reason this is an important consideration is that such a property admits significantly more complicated behavior during a collision. The protons are brought to such a high energy that, upon colliding and splitting particles out in all directions, the strong coupling is sufficiently small to consider the quarks as ``free'', meaning they don't form hadrons. In this respect, they are essentially just a bunch of electrons. However, after some more time passes, the changing distance/energy scales begin to increase the value of the coupling. At this stage, the quarks are no longer free, and they begin to hadronize. The behavior of interacting hadrons is no longer anywhere near as simple as the interacting free particles, since the substructure of the hadrons must be taken into account. 
+
+Further, before hadronization occurs, the free quarks will radiate gluons, particles that are similar to photons but also feel the strong force like the quarks. Often, due to the energetic nature of the collision, there will be a large number of emitted gluons with high energy, that then may decay into quark/anti-quark pairs, which may then subsequently radiate further. Due to this, there are often a very large quantity of quarks/anti-quarks present once hadronization begins, further exacerbating the problem.
+
+To avoid being too pessimistic, I will make one final note about what makes this so difficult. Currently, our frameworks in theoretical physics admit solutions that are represented by an infinite series of terms, called \textit{perturbation theory}. Essentially, this involves writing a function as an expansion in some small parameter $\lambda$ like so:
+
+\begin{equation}
+  f(x) = a_0 + \lambda a_1(x) + \lambda^2 a_2(x) + \lambda^3 a_3(x) + \ldots.
+\end{equation}
+
+Usually, $\lambda$ is the coupling for particles involved in a particular reaction. For a single interaction, there is only one factor, but as you consider more interactions, more factors of the coupling will be included. For instance, considering a quark emitting one single gluon, there is only 1 interaction, that being the interaction between the quark and the gluon. However, if we consider a chain of quark radiation, there are multiple decays and interactions between the quarks and the gluons. Any part of given process technically has a non-zero probability of occurring, meaning the full infinite series is the ``full,'' ``correct'' answer. Fortunately, the ``small parameter'' is usually sufficiently small such that we can only consider the first few terms and have the result be moderately accurate. In other words, considering only the single interaction is usually a good enough estimation for the entire process containing the infinite number of interactions.
+
+\subsection{Main Goal(s) for the Project}
+
+The previous section was very general, encompassing the general idea of what should be considered to model such processes (and make calculations in general). Of course, I cannot include everything in my project, so I will make a few additional considerations.
+
+First, for a simulation such as this, I will start by including only interactions that are represented by the first term in the aforementioned perturbative series. For instance, instead of a quark radiating a gluon which then splits into a quark/anti-quark pair and so on, I will consider only the radiation of a single gluon at a time. By virtue of perturbation theory, this will already be a decent approximation itself, at least in the high energy regime where the coupling actually remains small. Once these core processes are implemented, subsequent terms in the series corresponding to new interactions can be taken into account. Immediately at second-order, though, things get challenging (for instance, calculating the probability of an electron emitting and reabsorbing a photon evaluates to infinity), so only a few of the most important second-order process will be considered.
+
+Second, modeling the entire process start to finish, i.e. from hard scattering to simulating the detector, would be an absolutely monstrous task. Most if not every program out there for simulating these processes only focuses on a subset of the full run. For instance, \textsc{MadGraph5} largely focuses on the hard scattering process, i.e. generating events that occur immediately after the collision and before any quark radiation. \textsc{Pythia8} and \textsc{Herwig++} can do this too, as well as taking into account the parton showering elements. \textsc{Geant4} focuses only on the detector simulation, and takes as input the output of \textsc{Pythia8}, \textsc{Herwig7}, or any other parton showering program. This is done via the Les Houches Event (LHE) file format~\cite{LHEFFORMAT}, which I will describe later. My project will focus primarily on the hard scattering process as well as the parton showering, before hadronization. I will not attempt to simulate the detector structure.
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=0.8\linewidth]{./res/Images/h_pt_tau.png}
+  \caption{Distribution of intermediate-state $\tau$ lepton for a process that creates an exotic particle called the \textit{leptoquark}.}
+  \label{fig:h-pt-tau}
+\end{figure}
+
+
+As a first step, the main goal will be to produce results that are similar that produced by \textsc{MadGraph5} for the hard scattering process and \textsc{Pythia8}/\textsc{Herwig7} for the parton showering process (or, since the latter two programs can also do the hard scattering process, I may keep it simple and compare to only one for consistency's sake). This includes things like kinematical distributions of the ``final-state'' particles, such as transverse momentum, energy, and so on. For instance, an output of an event generator pipeline I worked with over the previous summer at my intership at CERN would look like Fig.~\ref{fig:h-pt-tau}. Essentially, the process I was simulating was considering the production of a possible new particle called a \textit{leptoquark}. The leptoquark decays into a variety of particles including the $\tau$ lepton, and as a sanity check to ensure that my pipeline was working, I plotted the distribution of the $\tau$ leptons that were made as a result of the leptoquark decay. Such distributions are what I am attempting to create and compare with that of existing programs.
+
+In principle, I'd like to be able to generate and shower events using my program, and have the results be comparable as if I did the same with just \textsc{Pythia8}/\textsc{Herwig7}, or if I instead generated with \textsc{MadGraph5} and then showered with my program, or any combination of the event generators. If I am able to fully interop with these programs and produce sensible results, I will consider it a huge success.
+
+
+%%% Local Variables:
+%%% mode: LaTeX
+%%% TeX-master: "../../Report"
+%%% End:
