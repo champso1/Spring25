@@ -1,0 +1,63 @@
+\ProvidesPackage{Preamble}
+
+
+\usepackage[margin=1.0in]{geometry} %fix margins
+\usepackage{cite}
+\usepackage{soul} %fix underlining
+\usepackage{hyperref}
+
+%subfigures/tables/etc.
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{multirow}
+\usepackage{multicol}
+\usepackage{enumitem}
+
+%math stuff
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{siunitx}
+\usepackage{mathtools}
+\usepackage{bm}
+\usepackage{siunitx}
+\usepackage{esdiff}
+\usepackage{esint}
+\usepackage{braket}
+
+%macros
+\newcommand{\abs}[1]{\lvert #1 \rvert}
+\newcommand{\vv}[1]{\bm{#1}}
+\newcommand{\grad}{\vv{\nabla}}
+\newcommand{\dd}{\mathrm{d}}
+\newcommand{\ddp}{\partial}
+\newcommand{\mat}[1]{\mathbf{#1}}
+
+
+
+%question environment
+\usepackage{titlesec}
+\titleformat
+{\section}[block]
+{\normalfont\large\bfseries}
+{Question \thesection.}{0.5em}{}
+
+
+\usepackage{enumitem}
+\newlist{parts}{enumerate}{3}
+\setlist[parts, 1]
+{
+    label=\alph{partsi}),
+    leftmargin=0.5in
+}
+\setlist[parts, 2]
+{
+    label=\textbf{\arabic{partsii}}),
+    leftmargin=0.25in
+}
+
+
+
+%spacing
+\newcommand{\sep}{\vspace*{3mm}}
+\newcommand{\sepbig}{\vspace*{5mm}}
+\newcommand{\sepmajor}{\sep\noindent\rule{\textwidth}{1pt}\sep}

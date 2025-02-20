@@ -1,0 +1,48 @@
+\section{Lattice Symmetries}
+
+\begin{parts}
+\item What we are trying to show by this problem is that if we shift every Bravais lattice vector by the midpoint then taking any generic (shifted) lattice vector and inverting it yields another point on the lattice; this is the definition of an inversion point. So, we have that for a generic $\vv{R}_{\vv{a}}$, shifting it yields:
+
+  \begin{equation}
+    \vv{R}_{\vv{a}'} = \sum_i \left[ a_i - \frac{1}{2}(n_i + m_i)\right]\vv{\alpha}_i,
+  \end{equation}
+
+  where I've used $\vv{\alpha}_i$ for the primitive lattice vectors so that I can free $a$ and $b$ as indices.
+
+  Now, we need to show that inverting this gives back a point on the shifted lattice. That is, $-\vv{R}_{\vv{a'}} = \vv{R}_{\vv{b}'}$ where $\vv{R}_{\vv{b}'}$ is another shifted lattice vector. This lattice vector must have been retrieved due to an identical shift of some other point on the original Bravais lattice, meaning that $\vv{R}_{\vv{b}}$ must be a point on the original Bravais lattice.
+
+  So, we first have the relation
+
+  \begin{align}
+    -\vv{R}_{\vv{a}'} &= \vv{R}_{\vv{b}} \\
+    \sum_i \left[ -a_i + \frac{1}{2}(n_i + m_i) \right]\vv{\alpha}_i &= \sum_i \left[ b_i - \frac{1}{2}(n_i + m_i) \right]\vv{\alpha}_i.
+  \end{align}
+
+  Equating the coefficients, we find
+
+  \begin{equation}
+    -a_i + \frac{1}{2}(n_i + m_i) = b_i - \frac{1}{2}(n_i + m_i),
+  \end{equation}
+
+  so
+
+  \begin{equation}
+    b_i = n_i + m_i - a_i.
+  \end{equation}
+
+  For $\vv{R}_{\vv{b}}$ to be a point on the original, non-shifted lattice, we must have
+
+  \begin{equation}
+    \vv{R}_{\vv{b}} = \sum_i b_i \vv{\alpha}_i, \quad\text{where}\ b_i \in \mathbb{Z}.
+  \end{equation}
+
+  Since $n_i,m_i,a_i \in \mathbb{Z}$, so too must $b_i$. Thus, the lattice vector $\vv{R}_{\vv{b}}$ is a valid lattice vector in the original lattice. Hence, the midpoint of two lattice points in a Bravais lattice is also an inversion center.
+
+\end{parts}
+
+
+
+%%% Local Variables:
+%%% mode: LaTeX
+%%% TeX-master: "../../HW3"
+%%% End:

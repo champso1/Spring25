@@ -1,0 +1,54 @@
+\section{Position and Momentum Basis}
+
+\begin{parts}
+\item Of course, $\hat{\vv{p}}\ket{\vv{p}} = \vv{p}\ket{\vv{p}}$, so we can easily see that $\braket{\vv{x} | \hat{\vv{p}} | \vv{p}} = \vv{p}\braket{\vv{x} | \vv{p}}$. Another way to interpret it is that this is the position representation of the momentum operator acting on a momentum state, which, in three-dimensions, is the gradient (times $-i\hbar$), meaning that also $\braket{\vv{x} | \hat{\vv{p}} | \vv{p}} = -i\hbar \hat{\grad}\braket{\vv{x} | \vv{p}}$. Therefore, doing a teeny bit of reshuffling, we can see that
+  \begin{equation}
+    \frac{i\vv{p}}{\hbar}\braket{\vv{x} | \vv{p}} = \hat{\grad}\braket{\vv{x} | \vv{p}}.
+  \end{equation}
+
+
+\item The above result is a simple differential equation, which becomes clear when we express $\psi_{\vv{p}}(\vv{x}) = \braket{\vv{x} | \vv{p}}$, and the result is something we have seen many times; it's an exponential (times a constant):
+
+  \begin{equation}
+    \psi_{\vv{p}}(\vv{x}) = Ae^{i\vv{p}\cdot\vv{x}/\hbar}.
+  \end{equation}
+
+  As a complex exponential, we can't use the ordinary normalization condition $\abs{\psi_{\vv{p}}(\vv{x})}^2 = 1$, but we can use Dirac orthonormality, i.e. that $\braket{\vv{p}' | \vv{p}} = \delta^3(\vv{p} - \vv{p}')$. Inserting the identity, we find
+
+  \begin{equation}
+    \int \dd^3x \; \braket{\vv{p}' | \vv{x}} \braket{\vv{x} | \vv{p}} = \abs{A}^2\int \dd^3x \; e^{-i\vv{p}'\cdot\vv{x}/\hbar}e^{-\vv{p}\cdot\vv{x}/\hbar} = \abs{A}^2\int \dd^3x \; e^{i(\vv{p} - \vv{p}')\cdot\vv{x}/\hbar}.
+  \end{equation}
+
+  However we know that
+
+  \begin{equation}
+    \delta(x) = \frac{1}{2\pi} \int \dd k \; e^{ikx},
+  \end{equation}
+
+  so the lefthand side is really just the delta function, with a factor of $(2\pi\hbar)^3$, meaning we have
+
+  \begin{equation}
+    \abs{A}^2(2\pi\hbar)^3\delta^3(\vv{p}' - \vv{p}) = \delta^3(\vv{p} - \vv{p}'),
+  \end{equation}
+
+  meaning
+
+  \begin{equation}
+    A = \frac{1}{(2\pi\hbar)^{3/2}},
+  \end{equation}
+
+  so,
+
+  \begin{equation}
+    \boxed{\psi_{\vv{p}}(\vv{x}) = \braket{\vv{x} | \vv{p}} = \frac{1}{(2\pi\hbar)^{3/2}}e^{i\vv{p}\cdot\vv{x}/\hbar}.}
+  \end{equation}
+
+
+\item Since $\vv{p} = \hbar\vv{k}$, then of course $\vv{p}/\hbar = \vv{k}$, which has the effect of getting rid of all the $\hbar$'s in our result, so this one is easy:
+
+  \begin{equation}
+    \boxed{\psi_{\vv{k}}(\vv{x}) \braket{\vv{k} | \vv{x}} = \frac{1}{(2\pi)^{3/2}}e^{i\vv{k}\cdot\vv{x}}.}
+  \end{equation}
+  
+  
+\end{parts}

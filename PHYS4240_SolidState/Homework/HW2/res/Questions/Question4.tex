@@ -1,0 +1,39 @@
+\section{The Translation Operator}
+
+\begin{parts}
+\item We know that the position operator transforms under the translation operator like so:
+
+  \begin{equation}
+    \hat{T}^\dagger(a) \hat{x} \hat{T}(a) = \hat{x} + a.
+  \end{equation}
+
+  Acting on both sides with $\hat{T}(a)$ cancels the $\hat{T}^\dagger(a)$ on the left since the translation operator is unitary, so
+
+  \begin{equation}
+    \hat{x} \hat{T}(a) = \hat{T}(a)\hat{x} + a\hat{T}(a) \quad\rightarrow \boxed{[\hat{x},\hat{T}(a)] = a\hat{T}(a).}
+  \end{equation}
+
+
+\item We are considering now the how $\braket{\hat{x}}$ and how it compares to $\braket{\hat{x}'}$. First, from the commutator:
+  \begin{equation}
+    \hat{x}\hat{T}(a) - \hat{T}(a)\hat{x} = a\hat{T}(a).
+  \end{equation}
+  
+  Acting with $\hat{T}^\dagger (a)$:
+  
+  \begin{equation}
+    \hat{T}^\dagger (a)\hat{x}\hat{T}(a) - \hat{x} = a, \quad\rightarrow\quad \hat{x'} = \hat{T}^\dagger(x)\hat{x}\hat{T}(a) = \hat{x} + a.
+  \end{equation}
+
+  Thus, 
+
+  \begin{equation}
+    \braket{\hat{x}'} = \braket{x | \hat{x} + a | x} = \boxed{\braket{x} + a.}
+  \end{equation}
+  
+\end{parts}
+
+%%% Local Variables:
+%%% mode: LaTeX
+%%% TeX-master: "../../HW2"
+%%% End:

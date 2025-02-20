@@ -1,0 +1,165 @@
+\section{The Born-Oppenheimer Approximation}
+
+We begin by writing the Hamiltonian for this system; it's just the combination of the kinetic and potential energies:
+
+\begin{equation}
+  \hat{H} = \frac{\hat{p}_1^2}{2M} + \frac{\hat{p}_2^2}{2m} + \frac{1}{2}k_1\hat{x}_1^2 + \frac{1}{2}k_2\hat{x}_2^2 + \frac{1}{2}k_{12}(\hat{x}_1 - \hat{x}_2)^2.
+\end{equation}
+
+To start with the Born-Oppenheimer approximation, we first make the assumption that the heavier particle is so much heavier that we can neglect its motion compared to the lighter particle. In this case, this means that its kinetic energy is significantly smaller than that of the lighter particle. We also recognize that the Hamiltonian can be split up into three parts: $\hat{H} = \hat{H}_1 + \hat{H}_{12} + \hat{H}_{2}$ where $\hat{H}_i$ is the Hamiltonian of the $i$th particle and $\hat{H}_{12}$ is the interaction part containing the last potential term. With our assumption, we have that $\hat{H}_1 << \hat{H}_{12} + \hat{H}_2$, so we solve the latter:
+
+\begin{equation}
+  (\hat{H}_{12} + \hat{H}_2)\ket{\psi_n} = (E_2)_n\ket{\psi_n},
+\end{equation}
+
+where $\ket{\psi_n}$ is the $n$th eigenket for the light particle. This is something that we can solve. Writing out this new Hamiltonian, we have
+
+\begin{equation}
+  \hat{H}_{12} + \hat{H}_2 = \frac{\hat{p}_2^2}{2m} + \frac{1}{2}k_2x_2^2 + \frac{1}{2}k_{12}(\hat{x}_1 - \hat{x}_2)^2.
+\end{equation}
+
+We can complete the square here and get a decently simple equation:
+
+\begin{align}
+  \hat{H}_{12} + \hat{H}_2 &= \frac{\hat{p}_2^2}{2m} + \frac{1}{2}k_2x_2^2 + \frac{1}{2}k_{12}x_1^2 - k_{12}x_1x_2 + \frac{1}{2}k_{12}x_2^2 \\
+                           &= \frac{\hat{p}_2^2}{2m} + \frac{1}{2}(k_2 + k_{12})x_2^2 - k_{12}x_1x_2 + \frac{1}{2}k_{12}x_1^2 \\
+                           &= \frac{\hat{p}_2^2}{2m} + \frac{1}{2}(k_2 + k_{12})\left[ x_2^2 - \left( \frac{2k_{12}}{k_2 + k_{12} x_1}x_2 + \frac{k_{12}}{k_2 + k_12}x_1^2 \right) \right].
+\end{align}
+
+Defining $a \equiv k_{12}/(k_2 + k_{12})$ to make things simpler, we have
+
+\begin{align}
+  \hat{H}_{12} + \hat{H}_2 &= \frac{\hat{p}_2^2}{2m} + \frac{1}{2}(k_2 + k_{12})\left[ x_2^2 - 2ax_1x_2 + ax_1^2 \right] \\
+                           &= \frac{\hat{p}_2^2}{2m} + \frac{1}{2}(k_2 + k_{12})\left[ (x_2 - ax_1)^2 + a(1-a)x_1^2 \right] \\
+                           &= \frac{\hat{p}_2^2}{2m} + \frac{1}{2}(k_2 + k_{12})(x_2 - ax_1)^2 + k_{12}(1-a)x_1^2.
+\end{align}
+
+We have recovered a normal simple harmonic oscillator Hamiltonian, but with $k'_2 = k_2 + k_{12}$ and a constant term. The constant term won't do anything but sum the normal simple harmonic oscillator solutions. So:
+
+\begin{equation}
+  (E_2)_0 = \hbar\omega'_2\left( n + \frac{1}{2} \right) + k_{12}(1-a)x_1^2 = \hbar\omega'_2\left( n + \frac{1}{2} \right) + x_1^2\left( \frac{k_2k_{12}}{k_2 + k_{12}} \right),
+\end{equation}
+
+where $\omega'_2 = \sqrt{k'_2/m} = \sqrt{(k_2 + k_{12})/m}$.
+
+We now adopt the product ans\"atz, that is, that we express the total wavefunction as a product of the heavier and lighter particle wavefunctions:
+
+\begin{equation}
+  \ket{\Psi} = \ket{\psi}\ket{\phi}, \quad\text{or}\quad \Psi(x_1,x_2) = \psi(x_1)\phi(x_2).
+\end{equation}
+
+To look at the wavefunction for the heavier particle, we make another assumption: the lighter particle remains in the same state as the system progresses. If this is the case, we can just place it in the ground state without loss of generality. Now, we act on the total wavefunction with $\hat{H}_{12} + \hat{H}_2$. It will ignore the heavy part since this combined light operator sees it as essentially constant. This leaves us with:
+
+\begin{equation}
+  (\hat{H}_{12} + \hat{H}_2)\ket{\Psi} = (E_2)_0\ket{\psi}\ket{\phi}.
+\end{equation}
+
+Now if we act with $\hat{H}_1$ on this Hamiltonian, we can first consider the kinetic term:
+
+\begin{align}
+  \hat{p}_1^2\ket{\psi}\ket{\phi} &= (-\hbar^2\partial_{x_1}^2 \ket{\psi})\ket{\phi} + \ket{\psi}(\hat{p}_1^2 \ket{\phi}) \\ 
+                                          & -2i\hbar (\partial_{x_1} \ket{\psi})(\hat{p}_1\ket{\phi})
+\end{align}
+
+If we just define $U_1(x_1) \equiv kx_1^2/2$, then the entire $\hat{H}_1$ term acting on the total wavefunction looks like
+
+\begin{align}
+  \hat{H}_1\ket{\Psi} &= \left( -\frac{\hbar^2}{2M}\partial_{x_1}^2 \ket{\psi} \right)\ket{\phi} + \ket{\psi}\left( \frac{\hat{p}_1^2}{2M} \ket{\phi} \right) \\
+                      & - \frac{i\hbar}{m}(\partial_{x_1}\ket{\psi})(\hat{p}_1 \ket{\phi}) + \ket{\psi} U(x_1) \ket{\phi}.
+\end{align}
+
+So, adding this with the light-particle solution (which is just the energy eigenvalues) we get the action of the total Hamiltonian on the total wavefunction:
+
+\begin{align}                        
+  \hat{H}\ket{\Psi} &= \ket{\psi}\left[ - \frac{\hbar^2}{2M}\partial_{x_1}^2 + U_1(x_1) + (E_2)_0 \right] \ket{\phi} \\
+                    & - \left[ \frac{i\hbar}{M}(\partial_{x_1} \ket{\psi})\hat{p}_1 + \frac{\hbar^2}{2M} \partial_{x_1}^2 \ket{\psi} \right]\ket{\phi}.
+\end{align}
+
+We can now integrate out the light-particle degrees of freedom by acting on the left with $\bra{\psi}$:
+
+\begin{align}
+  \braket{\psi | \hat{H} | \Psi} &= \bra{\psi} \left[ - \frac{\hbar^2}{2M}\partial_{x_1}^2 + U_1(x_1) + (E_2)_0 \right]\ket{\phi} \\
+                                       & - \left[ \frac{i\hbar}{m}(\braket{\psi | \partial_{x_1} | \psi}\hat{p}_1 + \frac{\hbar^2}{2M}(\braket{\psi | \partial_{x_1}^2 | \psi}) \right] \ket{\phi}.
+\end{align}
+
+We know from class that the two terms in the second line are zero; the first is zero due to time-reversal symmetry, the second is proportional to the kinetic energy of the lighter particle divided by the mass of the large particle, which in our approximation, we can take to zero. Thus,
+
+\begin{equation}
+  \braket{\psi | \hat{H} | \Psi} = \bra{\psi}\left[ \frac{\hat{p}_1^2}{2M} + U_1(x_1) + (E_2)_0 \right]\ket{\phi},
+\end{equation}
+
+hence, we can define an effective Hamiltonian for the heavy particle:
+
+\begin{equation}
+  \hat{H}_{1,\mathrm{eff}} = \frac{\hat{p}_1^2}{2M} + U_1(x_1) + (E_2)_0 = \frac{\hat{p}_1^2}{2M} + \frac{1}{2}k_1x_1^2 + (E_2)_0.
+\end{equation}
+
+This is an easily Hamiltonian to solve. First, the ground state of the lighter particle has
+
+\begin{equation}
+  (E_2)_0 = \frac{\hbar\omega_2'}{2} + x_1^2\left( \frac{k_2k_{12}}{k_2 + k_{12}} \right),
+\end{equation}
+
+which leads to
+
+\begin{equation}
+  \hat{H}_{1,\mathrm{eff}} = \frac{\hat{p}_1^2}{2M} + \frac{1}{2}\left( k_1 + \frac{2k_2k_{12}}{k_2 + k_{12}} \right)x_1^2 + \frac{\hbar\omega_2'}{2}.
+\end{equation}
+
+This is just another SHO with a constant term. So, defining $k_1'$ as the stuff inside the parentheses, we have
+
+\begin{equation}
+  (E_1)_n = \hbar\omega_1'\left( n + \frac{1}{2} \right) + \frac{\hbar\omega_2'}{2},
+\end{equation}
+
+where $\omega_1' = \sqrt{k_1'/M}$.
+
+At this point, we have solved this problem in the Born-Oppenheimer approximation. The next order of business would be to solve it exactly, i.e. without any approximations. This is something I still don't quite understand, so I will just recap my very basic understanding. First, we can better express this in matrix form like so:
+
+\begin{equation}
+  H = \frac{1}{2}\mathbf{P}^\intercal \mathbf{M}^{-1} \mathbf{P} + \frac{1}{2}\mathbf{X}^\intercal \mathbf{K} \mathbf{X},
+\end{equation}
+
+where $\mathbf{P} = \begin{pmatrix}\hat{p}_1 & \hat{p}_2\end{pmatrix}$, $\mathbf{M}$ is a positive-definite, diagonal mass matrix, $\mathbf{X} = \begin{pmatrix}x_1 & x_2\end{pmatrix}$, and
+
+\begin{equation}
+  \mathbf{K} = \begin{pmatrix}k_1 + k_{12} & -k_{12} \\ -k_{12} & k_1 + k_{12}\end{pmatrix}.
+\end{equation}
+
+The idea is to diagonalize $\mathbf{K}$, since that way we would have two decoupled harmonic oscillators, whose energies we can very easily solve for. However, we can't just diagonalize $\mathbf{K}$, since we are in essence doing a coordinate transformation to normal coordinates, meaning the momentum matrices would be affected. It is this step that is a little confusing, but at the end of the way we are looking to diagonalize not $\mathbf{K}$ but $\mathbf{M}^{-1/2}\mathbf{K}\mathbf{M}^{-1/2}$:
+
+\begin{equation}
+  \mathbf{M}^{-1/2}\mathbf{K}\mathbf{M}^{-1/2} = \begin{pmatrix}\frac{k_1 + k_{12}}{M} & - \frac{k_{12}}{\sqrt{Mm}} \\ - \frac{k_{12}}{\sqrt{Mm}} & \frac{k_1 + k_{12}}{m}\end{pmatrix}.
+\end{equation}
+
+I don't want to type everything out here, but by diagonalizing this, we determine the eigenvalues, which are the two frequencies of the normal modes:
+
+\begin{equation}
+  \omega_\pm = \frac{-\frac{k_{12}(M + m) + mk_1 + Mk_2}{Mm} \pm \sqrt{\left( \frac{k_{12}(M + m) + mk_1 + Mk_2}{Mm} \right)^2 - 4\left( \frac{k_1k_{12} + k_1k_2 + k_{12}k_2}{Mm} \right)}}{2}.
+\end{equation}
+
+Since we have $m << M$, we can simplify the term outside the square root (and the identical term that's squared inside the square root and get
+
+\begin{equation}
+  \omega_\pm = \frac{- \frac{k_{12} + k_2}{m} \pm \sqrt{\left( \frac{k_{12} + k_2}{m} \right)^2 - 4\left( \frac{k_1k_{12} + k_1k_2 + k_{12}k_2}{Mm} \right)}}{2}.
+\end{equation}
+
+Further, if we multiply top and bottom by $m$, we get
+
+\begin{equation}
+  \frac{-(k_{12} + k2) \pm \sqrt{(k_{12} + k_2)^2 - 4 \frac{m}{M}(k_1k_{12} + k_1k_2 + k_{12}k_2)}}{2m},
+\end{equation}
+
+and the second term in brackets vanishes. If we then take the limiting case $k_{12} << k_1,k_2$, the $\pm$ gives two terms, one of which is zero, and all we get left is $\omega = k_2/m$, which gives us energy levels which makes complete sense! If one particle is super heavy and doesn't move much compared to the other, and they hardly interact, then we essentially just have the one oscillator, which is exactly what we just got. We also see pretty easily that the same occurs for our approximation case.
+
+It's hard to tell the relations between the two in the case where the coupling is roughly equal, and that is likely due to the way that I solved the problem. As I'm sure you're aware by now, our classical mechanics and mathematical methods courses were not all that good. 
+
+
+
+
+
+
+%%% Local Variables:
+%%% mode: LaTeX
+%%% TeX-master: "../../HW2"
+%%% End:
