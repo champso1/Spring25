@@ -1,0 +1,9 @@
+set terminal pdfcairo enhanced
+set output "chi.pdf"
+set title "SIAM"
+set logscale x
+set format x '10^{%L}'
+set xlabel 'Temperature'
+set xrange [1e-8:1e-1]
+set ylabel 'k_BT {/Symbol c}_{sp,imp}(T)'
+plot 'td-Sz2.dat' with lp title 'impurity magnetic susceptibility'

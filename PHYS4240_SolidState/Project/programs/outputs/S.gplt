@@ -1,0 +1,14 @@
+set terminal pdfcairo enhanced
+set title "Impurity contribution to specific heat"
+set output "plots/S_all.pdf"
+
+set logscale x
+set format x '10^{%L}'
+set xrange [1e-8:1e-1]
+
+set xlabel 'Temperature'
+set ylabel 'S_{imp}(T)/k_B'
+
+plot './data/nrgljubljana.dat' using 1:2 with lp title 'nrgljubljana',\
+'./data/matlab.dat' using 1:2 with lp title "matlab",\
+'./data/data.dat' using 1:2 with lp title "me"

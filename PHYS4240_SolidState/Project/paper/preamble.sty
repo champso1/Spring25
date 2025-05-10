@@ -1,0 +1,41 @@
+\ProvidesPackage{Preamble}
+
+
+\usepackage[margin=1.0in]{geometry} %fix margins
+% \usepackage{cite}
+\usepackage{soul} %fix underlining
+\usepackage[
+colorlinks=true,
+linkcolor=blue
+]{hyperref}
+
+%subfigures/tables/etc.
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{multirow}
+\usepackage{multicol}
+\usepackage{enumitem}
+
+%math stuff
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{siunitx}
+\usepackage{mathtools}
+\usepackage{bm}
+\usepackage{esdiff}
+\usepackage{esint}
+\usepackage{braket}
+
+%math macros
+\newcommand{\abs}[1]{\lvert #1 \rvert}
+\newcommand{\vv}[1]{\mathbf{\bm{#1}}}
+\newcommand{\grad}{\vv{\nabla}}
+\newcommand{\dd}{\mathrm{d}}
+\newcommand{\ddp}{\partial}
+
+
+
+%various spacing macros
+\newcommand{\sep}{\vspace*{3mm}}
+\newcommand{\sepbig}{\vspace*{5mm}}
+\newcommand{\sepmajor}{\sep\noindent\rule{\textwidth}{1pt}\sep}

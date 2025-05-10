@@ -1,0 +1,13 @@
+set terminal pdfcairo enhanced
+set title "Impurity contribution to thermodynamic quantities"
+set output "plots/all.pdf"
+
+set logscale x
+set format x '10^{%L}'
+set xrange [1e-8:1e-1]
+set xlabel 'Temperature'
+set key top left
+
+plot './data/data.dat' using 1:2 with lp title 'S_{imp}(T)/2k_B',\
+'' using 1:3 with lp title 'k_BT{/Symbol c}_{imp}(T)',\
+'' using 1:4 with lp title 'C_{v,imp}(T)k_B'

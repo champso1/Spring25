@@ -1,0 +1,12 @@
+set terminal pdfcairo enhanced
+set title "Impurity contribution to specific heat"
+set output "plots/tchi_new.pdf"
+
+set logscale x
+set format x '10^{%L}'
+set xrange [1e-8:0.5]
+
+set xlabel 'Temperature'
+set ylabel 'k_BT{\Symbol c}_{imp}(T)'
+
+plot './data/data.dat' using 1:3 with lp notitle

@@ -1,0 +1,231 @@
+\section{NRG for Anderson Impurity Model}
+
+Anderson's impurity model describes a magnetic impurity within an otherwise non-interacting sea/bath of conduction electrons as a pair of electrons interaccting via a Coulomb potential $U$. The total Hamiltonian, given by the sum of the Hamiltonians for the impurity, the bath, and the interaction is given by:
+
+\begin{align}
+  \hat{H} &= \hat{H}_{\text{imp}} + \hat{H}_{\text{bath}} + \hat{H}_{\text{int}} \\
+          &= \sum_\sigma \epsilon_f \hat{f}^\dagger_\sigma \hat{f}_\sigma + U\hat{f}^\dagger_\uparrow \hat{f}_\uparrow \hat{f}^\dagger_\downarrow \hat{f}_\downarrow + \sum_{k,\sigma}\epsilon_k \hat{c}^\dagger_{k\sigma}\hat{c}_{k\sigma} + \sum_{k,\sigma}V_k(\hat{f}^\dagger_\sigma \hat{c}_{k,\sigma} + h.c.),
+\end{align}
+
+where the $f$ operators create impurity states with energy $\epsilon_f$, the $c$ operators create bath states with energies $\epsilon_k$, and $V_k$ is a hybridization term.
+
+In order to more easily generate a logarithmic discretization, we can promote the energy spectrum of the bath states to the continuum:
+
+\begin{equation}
+  \hat{H} = \hat{H}_{\mathrm{imp}} + \sum_\sigma \int_{-1}^1 \dd\epsilon \; g(\epsilon) a^\dagger_{\epsilon\sigma}a_{\epsilon\sigma} + \sum_\sigma \int_{-1}^1 \dd\epsilon \; h(\epsilon)(f^\dagger_\sigma a_{\epsilon\sigma} + a^\dagger_{\epsilon\sigma}f_{\sigma}),
+\end{equation}
+
+with $g(\epsilon)$ being the dispersion and $h(\epsilon)$ being the hybridization. These new $a$ operators satisfy standard fermionic commutation relations:
+
+\begin{equation}
+  \{a^\dagger_{\epsilon\sigma}, a_{\epsilon'\sigma'}\} = \delta(\epsilon-\epsilon')\delta_{\sigma,\sigma'},
+\end{equation}
+
+We have also imposed cutoffs at $\epsilon=\pm1$.
+
+If we now define a parameter $\Lambda > 1$, then we can discretize the conduction band into logarithmic intervals:
+
+\begin{equation}
+  x_n = \pm\Lambda^{-n}, \quad n=0,1,2,\ldots.
+\end{equation}
+
+Now, the width of each interval is determined by
+
+\begin{equation}
+  d_n = \Lambda^{-n}(1 - \Lambda^{-1}).
+\end{equation}
+
+Inside of each band, we can now define a complete set of orthonormal functions which are simply plane waves with characteristic frequency determined by $\omega_n = 2\pi/d_n$ (and normalized to the interval width):
+
+\begin{equation}
+  \psi^\pm_{np}(\epsilon) =
+  \begin{alignedat}{1}
+    \begin{cases}
+      \frac{1}{\sqrt{d_n}}e^{\pm i\omega_n p\epsilon}, \quad & \text{for}\ x_{n+1} < \epsilon < x_n,\ \text{and} \\
+      0 & \text{otherwise}.
+    \end{cases}
+  \end{alignedat}
+\end{equation},
+
+where $p \in \mathbb{Z}$.
+
+We can expand the original $a$ operators in this new basis like so:
+
+\begin{equation}
+  a_{\epsilon\sigma} = \sum_{np}\left(a_{np\sigma}\psi^+_{np}(\epsilon) + b_{np\sigma}\psi^-_{np}(\epsilon)\right).
+\end{equation}
+
+A similar expansion would follow for the $a^\dagger$'s; these new operators would also follow the standard fermionic anti-commutation relations. To assist with notation, we define:
+
+\begin{equation}
+  \int^{+n}\dd\epsilon \equiv \int_{x_{n+1}}^{x_n}\dd\epsilon, \quad\text{and}\quad \int^{-n}\dd\epsilon \equiv \int_{-x_n}^{-x_{n+1}}\dd\epsilon.
+\end{equation}
+
+With this, we can express (part of) the hybridization term of our Hamiltonian (in integral form) like so:
+
+\begin{equation}
+  \int_{-1}^1\dd\epsilon \; h(\epsilon) f^\dagger_\sigma a_{\epsilon\sigma} = f^\dagger_\sigma \sum_{np} \left[ a_{np\sigma}\int^{+n}\dd\epsilon \; h(\epsilon)\psi^+_{np}(\epsilon) + b_{np\sigma}\int^{-n}\dd\epsilon \; h(\epsilon) \psi^-_{np}(\epsilon) \right].
+\end{equation}
+
+It is here we make one important assumption: that the hybridization $h(\epsilon)$ remain constant within each band, i.e. that $h(\epsilon) = h$. If we make this assumption, then the above integrals actually filter out only the $p=0$ state:
+
+\begin{equation}
+  \int^{\pm n}\dd\epsilon \; \psi^{\pm}_{np}(\epsilon) = \sqrt{d_n}h\delta_{p,0},
+\end{equation}
+
+which has the physical implication that the impurity states only couple to the $p=0$ conduction states. Now, we can make a further assumption with the hybridization: it remains constant for \textit{all} $\epsilon$. This is a bit of a crude approximation, but it turns out we can defined a sort of \textit{step} hybridization that goes like
+
+\begin{equation}
+  h(\epsilon) = h_n^{\pm},\quad x_{n+1} < \pm\epsilon < x_n,
+\end{equation}
+
+where $h^{\pm}_n$ is the average of the hybridization function within the corresponding intervals. With this in mind, the hybridization term in our Hamiltonian turns out to be:
+
+\begin{equation}
+  \int_{-1}^1\dd\epsilon \; h(\epsilon) f^\dagger_{\sigma}a_{\epsilon\sigma} = \frac{1}{\pi}f^\dagger_\sigma \sum_n \left( \gamma^\dagger_n a_{n0\sigma} + \gamma^-_n b_{n0\sigma} \right),
+\end{equation}
+
+where the $\gamma$ terms are given by
+
+\begin{equation}
+  \gamma^{\pm2}_n = \int^{\pm n}\dd\epsilon \; \Delta(\epsilon).
+\end{equation}
+
+We can now do the same for the conduction electron term:
+
+\begin{align}
+  \int_{-1}^1 \dd\epsilon \; g(\epsilon) a^\dagger_{\epsilon\sigma}a_{\epsilon\sigma} &= \sum_{np} \left( \xi^+_n a^\dagger_{np\sigma}a_{np\sigma} + \xi^-_n b^\dagger_{np\sigma}b_{np\sigma} \right) \\
+                                                                                      &+ \sum_{n,p \neq p'}\left[ \alpha^+_n(p,p')a^\dagger_{np\sigma}a_{np'\sigma} - \alpha^-_n(p,p')b^\dagger_{np\sigma}b_{np'\sigma} \right].\label{eq:cond-elect-exact}
+\end{align}
+
+The first term on the right is already diagonal in $p$; it turns out we can hence express the eigenvalues $\xi$ as
+
+\begin{equation}
+  \xi^{\pm}_n = \frac{\int^{\pm }\dd\epsilon \; \Delta(\epsilon)\epsilon}{\int^{\pm }\dd\epsilon \; \Delta(\epsilon)}.\label{eq:xi-exact}
+\end{equation}
+
+If we assume a constant $\Delta(\epsilon)$, then this simplifies to
+
+\begin{equation}
+  \xi^{\pm}_n = \frac{1}{2}\Lambda^{-n}(1 + \Lambda^{-1}) = \frac{d_n}{2}.
+\end{equation}
+
+In the case of a linear dispersion term, i.e. $g(\epsilon) = \epsilon$, we can determine the form of the $\alpha$ prefactors in Eq.~\eqref{eq:cond-elect-exact}:
+
+\begin{equation}
+  \alpha^{\pm}_n(p,p') = \frac{1 - \Lambda^{-1}}{2\pi i}\frac{\Lambda^{-n}}{p'-p} \exp{\frac{2\pi i(p'-p)}{1 - \Lambda^{-1}}}.
+\end{equation}
+
+If we now drop all $p \neq 0$ terms, as described before, we will have fully achieved the logarithmic discretization of the Hamiltonian:
+
+\begin{align}
+  \hat{H} = \hat{H}_{\mathrm{imp}} &+ \sum_{n\sigma} \left( \xi^+_n a^\dagger_{n\sigma}a_{n\sigma} + \xi^-_n b^\dagger_{n\sigma}b_{n\sigma} \right) \\
+          &+ \frac{1}{\sqrt{\pi}}\sum_\sigma f^\dagger_\sigma \sum_n \left( \gamma^+_n a_{n\sigma} + \gamma^-_n b_{n\sigma} \right) \\
+          &+ \frac{1}{\sqrt{\pi}} \sum_\sigma \left( \sum_n \left( \gamma^+_n a^\dagger_{n\sigma} + \gamma^-_n b^\dagger_{n\sigma} \right) \right)f_\sigma.
+\end{align}
+
+Our next goal is to map this discretized Hamiltonian onto a semi-infinite chain with the impurity placed at the first site. This means we will have the impurity connected to only a single conduction electron with operators $c^{(\dagger)}_{0\sigma}$. We can determine the form of these operators from our final expression for the discretized Hamiltonian:
+
+\begin{equation}
+  c_{0\sigma} = \frac{1}{\sqrt{\xi_0}} \sum_n \left( \gamma^+_n a_{n\sigma} + \gamma^-_n b_{n\sigma} \right),
+\end{equation}
+
+with normalization
+
+\begin{equation}
+  \xi_0 = \sum_n\left[ (\gamma^+_n)^2 + (\gamma^-_n)^2 \right] = \int_{-1}^1 \dd\epsilon \; \Delta(\epsilon).
+\end{equation}
+
+In terms of $c_{0\sigma}$, the hybridization term can be written like
+
+\begin{equation}
+  \frac{1}{\sqrt{\pi}} f^\dagger_\sigma \sum_n \left( \gamma^+_n a_{n\sigma} + \gamma^-_n b_{n\sigma} \right) = \sqrt{\frac{\xi_0}{\pi}}f^\dagger_\sigma c_{o\sigma},
+\end{equation}
+
+and the $c^\dagger_{0\sigma}$ operator follows similarly. However, these operators are not orthogonal to the $a$ and $b$ operators, so we must construct a new set in terms of $c^{(\dagger)}_{0\sigma}$. After doing this, we find that our chain Hamiltonian looks like:
+
+\begin{equation}
+  \hat{H} = \hat{H}_{\mathrm{imp}} + \sqrt{\frac{\xi_0}{\pi}} \sum_\sigma \left( f^\dagger_\sigma c_{0\sigma} + c^\dagger_{0\sigma}f_\sigma \right) = \sum_{\sigma n=0}^{\infty} \left[ \epsilon_nc^\dagger_{n\sigma}c_{n\sigma} + t_n\left( c^\dagger_{n\sigma}c_{n+1\sigma} + c^\dagger_{n+1\sigma}c_{n\sigma} \right) \right],
+\end{equation}
+
+where the $t_n$'s are the hopping matrix elements.
+
+Now, here is where the NRG really enters (after all, what we've done so far is nothing more than some mappings/transformations). The interpretation of this Hamiltonian is that it can be viewed as a series of Hamiltonians $H_N$ that approach the original Hamiltonian for $H \rightarrow \infty$. More specifically:
+
+\begin{equation}
+  H = \lim_{N\rightarrow\infty} \Lambda^{-(N-1)/2}H_N,
+\end{equation}
+
+with
+
+\begin{align}
+  H_N &= \Lambda^{(N-1)/2} \Bigg[ H_{\mathrm{imp}} + \sqrt{\frac{\xi_0}{\pi}}\sum_\sigma \left(f^\dagger_\sigma c_{0\sigma} + c^\dagger_{0\sigma}f_\sigma\right) \\
+  & + \sum_{\sigma n=0}^{N} \epsilon_n c^\dagger_{n\sigma}c_{n\sigma} + \sum_{\sigma n=0}^{N-1}t_n\left( c^\dagger_{n\sigma}c_{n+1\sigma} + c^\dagger_{n+1\sigma}c_{n\sigma} \right) \Bigg],
+\end{align}
+
+where obviously we have made $n$ limits go to $N$, and added a scaling factor has been added to cancel the $N$ dependence on the hopping matrix. It appears in the limit definition to cancel as well.
+
+We can find recursion relations for subsequent Hamiltonians:
+
+\begin{equation}
+  H_{N+1} = \sqrt{\Lambda}H_N + \Lambda^{N/2}\sum_\sigma \epsilon_{N+1}c^\dagger_{N+1\sigma}c_{N+1\sigma} + \Lambda^{N/2}\sum_\sigma t_N\left( c^\dagger_{N\sigma}c_{N+1\sigma} + c^\dagger_{N+1\sigma}c_{N\sigma} \right),
+\end{equation}
+
+and the starting point $H_0$ given by
+
+\begin{equation}
+  H_0 = \Lambda^{-1/2} \left[H_{\mathrm{imp}} + \sum_\sigma \epsilon_0 c^\dagger_{0\sigma}c_{0\sigma} + \sqrt{\frac{\xi_0}{\pi}} \sum_\sigma \left( f^\dagger_\sigma c_{0\sigma} + c^\dagger_{0\sigma}f_\sigma \right)\right].
+\end{equation}
+
+This initial Hamiltonian is representative of the single two-electron impurity state and the first conduction electron. What this really is is a renormalization group transformation. In particular, the mapping from $H_N$ to $H_{N+1}$ is understood as $H_{N+1} = \mathrm{R}(H_N)$, where $\mathrm{R}$ is the renormalization group transformation. To be even more specific, the Hamiltonians are uniquely specified by a set of parameters, say $\vv{K}$, and this transformation maps a Hamiltonian $H(\vv{K})$ to another with another set of parameters $\vv{K}'$: $H(\vv{K}') = \mathrm{R}(H(\vv{K})$. Technically, however, this is actually the \textit{poor man's scaling} method introduced by Anderson; in general, we cannot guarantee such Hamiltonian can be uniquely specified by a singlet set of fixed parameters. Instead, we can simply default to the basis of the many particle energies $E_N(r)$:
+
+\begin{equation}
+  H_N\ket{r}_N = E_N(r)\ket{r}_N, \quad r=1,2,\ldots,N_s,
+\end{equation}
+
+with $N_s$ being the number of sites (i.e. the dimension of $H_N$).
+
+What we now wnat to do is determine some sort of iterative scheme in order to diagonalize this Hamiltonian. First, to construct $H_{N+1}$, the Hamiltonian for the chain with an added site, we simply take
+
+\begin{equation}
+  \ket{r}_{N+1} \equiv \ket{r;s}_{N+1} = \ket{r}_N \otimes \ket{s(N+1)},
+\end{equation}
+
+with $\ket{s(N+1)}$ being some suitable basis for the new added site/degree of freedom. We may then construct
+
+\begin{equation}
+  H_{N+1}(rs, r's') = _{N+1}\braket{r;s | H_{N+1} | r';s'}_{N+1},
+\end{equation}
+
+where we can determine the matrix elements by considering a decomposition of $H_{N+1}$ like so:
+
+\begin{equation}
+  H_{N+1} = \sqrt{\Lambda}H_N + \hat{X}_{N,N+1} + \hat{Y}_{N+1},
+\end{equation}
+
+with $\hat{Y}$ containing only information related to the new site and $\hat{X}$ containing information mixing the two degrees of freedom. Now, diagonlizing this matrix gives new eigenvalues $E_{N+1}(w)$ with corresponding eigenstates $\ket{w}_{N+1}$, which are related to the $\ket{r;s}_{N+1}$ via a unitary transformation:
+
+\begin{equation}
+  \ket{w}_{N+1} = \sum_{r,s} U(w,r,s)\ket{r;s}_{N+1}.
+\end{equation}
+
+At this point, an important consideration must be made. The dimensionality of the Hamiltonian will grow exponentially with $N$, so what we can do is truncate the chain at a certain point, keeping only $N_s$ of the lowest energy terms, and neglecting the higher order terms.
+
+
+
+
+
+
+\section{Specifics for Numerical Calculations}
+
+To actually begin programming this we need to more concretely define the procedure and the initial conditions. We can also fix some constants to make our lives a little easier. For instance, we can consider a constant hybridization, in which the term $\sqrt{\xi_0/\pi} \equiv V$ becomes our hybridization term. We can also set the occupation energy for the conduction states
+
+
+
+
+
+
+%%% Local Variables:
+%%% mode: LaTeX
+%%% TeX-master: "../project"
+%%% End:

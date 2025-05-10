@@ -1,0 +1,2 @@
+- what the hell is the hybridization function (perhaps related to the Green's function?)
+- my equation 10: where does that integral come from?

@@ -1,0 +1,19 @@
+\section{Discussion and Conclusions}
+
+To summarize, I was able to implement the NRG applied to the single-impurity Anderson model and get some results out that matched that of the papers at the time, namely Refs.~\cite{Wilson_1975},~\cite{Krishna-murthy_Wilkins_Wilson_1980}, and more recently~\cite{Bulla_2008}. The programming implementation was fortunately not too challenging due to, as mentioned earlier, the reference code. The thermodynamic results (the ones that I was able to fully understand) also matched with what was found in the papers as well as basic physics understanding. Hence, I have confirmed the physical picture that the magnetic impurity, at low energy scales, forms a singlet with the conduction electrons, called the Kondo singlet, which provides a residual scattering center within the metal that serves to increase the resistivity.
+
+Had I more time, I would have liked to explore further the idea of the effective Hamiltonians at the fixed points. This was mentioned before, but by determining the forms of the effective Hamiltonians at the different fixed points, we'd be able to calculate things with much higher precision. The forms themsleves would also give a little bit of intuition into the physics of the problem. The Kondo problem was a bit too complex, though, so I didn't quite have enough time to do this.
+
+Despite this, there are a few ways to improve accuracy even without effective Hamiltonians; one such method is called $z$-averaging. This involves running the program multiple times and essentially replacing $\Lambda^{-n}$ with $\Lambda^{-n-z}$ for different $z$ values. It turns out that even with only a couple different $z$ values the accuracy already improves tremendously, so this would have been good to implement, but I simply didn't have enough time.
+
+Lastly, the NRG can obviously be applied to other models, such as the original Kondo model, or asymmetric Anderson model, albeit with some modifications. It would have been nice to implement NRG for these models to get an idea of the different type of physics they describe.
+
+Overall, the Kondo problem is an insanely challenging problem, and only after over a decade's worth of research was the NRG finally formulated by Wilson, but only for the single-impurity Anderson model, the one studied in this project. More complicated systems took even longer, and even nowadays it is still a highly researched model. One model of note that I came across is the Kondo lattice; I know nothing about it obviously, but it goes to show that the Kondo problem is still being worked on after over half a century later: there is so much rich physics to discover related to impurities within metals.
+
+
+
+
+%%% Local Variables:
+%%% mode: LaTeX
+%%% TeX-master: "../project"
+%%% End:

@@ -1,0 +1,39 @@
+\documentclass[titlepage]{article}
+\usepackage{import}
+\usepackage{Preamble}
+
+\numberwithin{equation}{section}
+\numberwithin{figure}{section}
+
+\usepackage[
+backend=biber,
+style=ieee
+]{biblatex}
+\addbibresource{./sources.bib}
+
+\title{The Kondo Problem and the Numerical Renormalization Group \\[5pt] Term Project \\[8pt] PHYS4240: Solid State Physics}
+\author{Casey Hampson}
+
+\begin{document}
+    \maketitle
+    \pagebreak
+    \tableofcontents
+    \pagebreak
+
+    % \import{./parts}{proposal.tex}
+    \import{./parts}{1intro.tex}
+    \import{./parts}{2poormans.tex}
+    \import{./parts}{3variational.tex}
+    \import{./parts}{4NRG.tex}
+    \import{./parts}{5results.tex}
+    \import{./parts}{6discussion-conclusions.tex}
+
+    \pagebreak
+    \nocite{*}
+    \printbibliography
+\end{document}
+
+%%% Local Variables:
+%%% mode: LaTeX
+%%% TeX-master: t
+%%% End:

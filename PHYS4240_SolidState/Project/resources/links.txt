@@ -1,0 +1,6 @@
+Kondo Problem Mini-digest:
+https://jscaux.org/teaching/2017-18_StudSem
+
+Numerical Renormalization Group codes
+https://github.com/rokzitko/nrgljubljana
+https://github.com/tatha04/Numerical-Renormalization-Group (references here are handy).

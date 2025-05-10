@@ -1,0 +1,344 @@
+<rdf:RDF
+ xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+ xmlns:z="http://www.zotero.org/namespaces/export#"
+ xmlns:dcterms="http://purl.org/dc/terms/"
+ xmlns:dc="http://purl.org/dc/elements/1.1/"
+ xmlns:bib="http://purl.org/net/biblio#"
+ xmlns:vcard="http://nwalsh.com/rdf/vCard#"
+ xmlns:foaf="http://xmlns.com/foaf/0.1/"
+ xmlns:prism="http://prismstandard.org/namespaces/1.2/basic/"
+ xmlns:link="http://purl.org/rss/1.0/modules/link/">
+    <bib:Book rdf:about="urn:isbn:978-3-95806-074-6">
+        <z:itemType>book</z:itemType>
+        <dcterms:isPartOf>
+            <bib:Series>
+                <dc:title>Schriften des Forschungszentrums Jülich. Reihe Modeling and Simulation</dc:title>
+                <dc:identifier>Band 5</dc:identifier>
+            </bib:Series>
+        </dcterms:isPartOf>
+        <dc:publisher>
+            <foaf:Organization>
+                <vcard:adr>
+                    <vcard:Address>
+                       <vcard:locality>Jülich</vcard:locality>
+                    </vcard:Address>
+                </vcard:adr>
+                <foaf:name>Forschungszentrum Jülich</foaf:name>
+            </foaf:Organization>
+        </dc:publisher>
+        <bib:editors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Pavarini</foaf:surname>
+                        <foaf:givenName>Eva</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Koch</foaf:surname>
+                        <foaf:givenName>Erik</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Coleman</foaf:surname>
+                        <foaf:givenName>Piers</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Institute for Advanced Simulation</foaf:surname>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>German Research School for Simulation Sciences</foaf:surname>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:editors>
+        <dc:title>Many-body physics: from Kondo to Hubbard: lecture notes of the Autumn School on Correlated Electrons 2015: at Forschungszentrum Jülich, 21-25 September 2015</dc:title>
+        <dc:date>2015</dc:date>
+        <z:language>eng</z:language>
+        <z:shortTitle>Many-body physics</z:shortTitle>
+        <z:libraryCatalog>K10plus ISBN</z:libraryCatalog>
+        <dc:description>Meeting Name: Autumn School on Correlated Electrons</dc:description>
+        <dc:identifier>ISBN 978-3-95806-074-6</dc:identifier>
+        <z:numPages>450</z:numPages>
+    </bib:Book>
+    <bib:Article rdf:about="https://onlinelibrary.wiley.com/doi/10.1002/andp.19303990803">
+        <z:itemType>journalArticle</z:itemType>
+        <dcterms:isPartOf rdf:resource="urn:issn:0003-3804,%201521-3889"/>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Meissner</foaf:surname>
+                        <foaf:givenName>W.</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Voigt</foaf:surname>
+                        <foaf:givenName>B.</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <dc:title>Messungen mit Hilfe von flüssigem Helium XI Widerstand der reinen Metalle in tiefen Temperaturen</dc:title>
+        <dc:date>01/1930</dc:date>
+        <z:language>en</z:language>
+        <z:libraryCatalog>DOI.org (Crossref)</z:libraryCatalog>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://onlinelibrary.wiley.com/doi/10.1002/andp.19303990803</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2025-03-18 15:43:29</dcterms:dateSubmitted>
+        <dc:description>Number: 8</dc:description>
+        <bib:pages>892-936</bib:pages>
+    </bib:Article>
+    <bib:Journal rdf:about="urn:issn:0003-3804,%201521-3889">
+        <prism:volume>399</prism:volume>
+        <dc:title>Annalen der Physik</dc:title>
+        <dc:identifier>DOI 10.1002/andp.19303990803</dc:identifier>
+        <prism:number>8</prism:number>
+        <dcterms:alternative>Annalen der Physik</dcterms:alternative>
+        <dc:identifier>ISSN 0003-3804, 1521-3889</dc:identifier>
+    </bib:Journal>
+    <bib:Article rdf:about="https://linkinghub.elsevier.com/retrieve/pii/S0031891436800093">
+        <z:itemType>journalArticle</z:itemType>
+        <dcterms:isPartOf rdf:resource="urn:issn:00318914"/>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>De Haas</foaf:surname>
+                        <foaf:givenName>W.J.</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Van Den Berg</foaf:surname>
+                        <foaf:givenName>G.J.</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <dc:title>The electrical resistance of gold and silver at low temperatures</dc:title>
+        <dc:date>6/1936</dc:date>
+        <z:language>en</z:language>
+        <z:libraryCatalog>DOI.org (Crossref)</z:libraryCatalog>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://linkinghub.elsevier.com/retrieve/pii/S0031891436800093</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2025-03-18 15:44:03</dcterms:dateSubmitted>
+        <dc:rights>https://www.elsevier.com/tdm/userlicense/1.0/</dc:rights>
+        <dc:description>Number: 6</dc:description>
+        <bib:pages>440-449</bib:pages>
+    </bib:Article>
+    <bib:Journal rdf:about="urn:issn:00318914">
+        <prism:volume>3</prism:volume>
+        <dc:title>Physica</dc:title>
+        <dc:identifier>DOI 10.1016/S0031-8914(36)80009-3</dc:identifier>
+        <prism:number>6</prism:number>
+        <dcterms:alternative>Physica</dcterms:alternative>
+        <dc:identifier>ISSN 00318914</dc:identifier>
+    </bib:Journal>
+    <bib:Article rdf:about="https://academic.oup.com/ptp/article-lookup/doi/10.1143/PTP.32.37">
+        <z:itemType>journalArticle</z:itemType>
+        <dcterms:isPartOf rdf:resource="urn:issn:0033-068X,%201347-4081"/>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Kondo</foaf:surname>
+                        <foaf:givenName>J.</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <link:link rdf:resource="#item_5"/>
+        <dc:title>Resistance Minimum in Dilute Magnetic Alloys</dc:title>
+        <dc:date>1964-07-01</dc:date>
+        <z:language>en</z:language>
+        <z:libraryCatalog>DOI.org (Crossref)</z:libraryCatalog>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://academic.oup.com/ptp/article-lookup/doi/10.1143/PTP.32.37</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2025-03-18 15:44:16</dcterms:dateSubmitted>
+        <dc:description>Number: 1</dc:description>
+        <bib:pages>37-49</bib:pages>
+    </bib:Article>
+    <bib:Journal rdf:about="urn:issn:0033-068X,%201347-4081">
+        <prism:volume>32</prism:volume>
+        <dc:title>Progress of Theoretical Physics</dc:title>
+        <dc:identifier>DOI 10.1143/PTP.32.37</dc:identifier>
+        <prism:number>1</prism:number>
+        <dcterms:alternative>Progress of Theoretical Physics</dcterms:alternative>
+        <dc:identifier>ISSN 0033-068X, 1347-4081</dc:identifier>
+    </bib:Journal>
+    <z:Attachment rdf:about="#item_5">
+        <z:itemType>attachment</z:itemType>
+        <dc:title>Full Text</dc:title>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://academic.oup.com/ptp/article-pdf/32/1/37/5193092/32-1-37.pdf</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2025-03-18 15:44:18</dcterms:dateSubmitted>
+        <z:linkMode>3</z:linkMode>
+        <link:type>application/pdf</link:type>
+    </z:Attachment>
+    <bib:Article rdf:about="https://iopscience.iop.org/article/10.1088/0022-3719/3/12/008">
+        <z:itemType>journalArticle</z:itemType>
+        <dcterms:isPartOf rdf:resource="urn:issn:0022-3719"/>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Anderson</foaf:surname>
+                        <foaf:givenName>P W</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <dc:title>A poor man's derivation of scaling laws for the Kondo problem</dc:title>
+        <dc:date>1970-12-01</dc:date>
+        <z:libraryCatalog>DOI.org (Crossref)</z:libraryCatalog>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://iopscience.iop.org/article/10.1088/0022-3719/3/12/008</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2025-03-18 15:44:47</dcterms:dateSubmitted>
+        <dc:description>Number: 12</dc:description>
+        <bib:pages>2436-2441</bib:pages>
+    </bib:Article>
+    <bib:Journal rdf:about="urn:issn:0022-3719">
+        <prism:volume>3</prism:volume>
+        <dc:title>Journal of Physics C: Solid State Physics</dc:title>
+        <dc:identifier>DOI 10.1088/0022-3719/3/12/008</dc:identifier>
+        <prism:number>12</prism:number>
+        <dcterms:alternative>J. Phys. C: Solid State Phys.</dcterms:alternative>
+        <dc:identifier>ISSN 0022-3719</dc:identifier>
+    </bib:Journal>
+    <bib:Book rdf:about="urn:isbn:978-0-521-36382-2">
+        <z:itemType>book</z:itemType>
+        <dcterms:isPartOf>
+            <bib:Series>
+                <dc:title>Cambridge studies in magnetism</dc:title>
+                <dc:identifier>2</dc:identifier>
+            </bib:Series>
+        </dcterms:isPartOf>
+        <dc:publisher>
+            <foaf:Organization>
+                <vcard:adr>
+                    <vcard:Address>
+                       <vcard:locality>Cambridge</vcard:locality>
+                    </vcard:Address>
+                </vcard:adr>
+                <foaf:name>Cambridge university press</foaf:name>
+            </foaf:Organization>
+        </dc:publisher>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Hewson</foaf:surname>
+                        <foaf:givenName>Alexander Cyril</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <dc:title>The Kondo problem to heavy fermions</dc:title>
+        <dc:date>1993</dc:date>
+        <z:language>eng</z:language>
+        <z:libraryCatalog>BnF ISBN</z:libraryCatalog>
+        <dc:subject>
+           <dcterms:LCC><rdf:value>539.721</rdf:value></dcterms:LCC>
+        </dc:subject>
+        <dc:identifier>ISBN 978-0-521-36382-2</dc:identifier>
+    </bib:Book>
+    <bib:Article rdf:about="https://link.aps.org/doi/10.1103/RevModPhys.47.773">
+        <z:itemType>journalArticle</z:itemType>
+        <dcterms:isPartOf rdf:resource="urn:issn:0034-6861"/>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Wilson</foaf:surname>
+                        <foaf:givenName>Kenneth G.</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <dc:title>The renormalization group: Critical phenomena and the Kondo problem</dc:title>
+        <dc:date>1975-10-1</dc:date>
+        <z:language>en</z:language>
+        <z:shortTitle>The renormalization group</z:shortTitle>
+        <z:libraryCatalog>DOI.org (Crossref)</z:libraryCatalog>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://link.aps.org/doi/10.1103/RevModPhys.47.773</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2025-03-18 15:56:40</dcterms:dateSubmitted>
+        <dc:rights>http://link.aps.org/licenses/aps-default-license</dc:rights>
+        <dc:description>Number: 4</dc:description>
+        <bib:pages>773-840</bib:pages>
+    </bib:Article>
+    <bib:Journal rdf:about="urn:issn:0034-6861">
+        <prism:volume>47</prism:volume>
+        <dc:title>Reviews of Modern Physics</dc:title>
+        <dc:identifier>DOI 10.1103/RevModPhys.47.773</dc:identifier>
+        <prism:number>4</prism:number>
+        <dcterms:alternative>Rev. Mod. Phys.</dcterms:alternative>
+        <dc:identifier>ISSN 0034-6861</dc:identifier>
+    </bib:Journal>
+    <bib:Book rdf:about="urn:isbn:978-0-521-14768-2%20978-0-521-57232-3">
+        <z:itemType>book</z:itemType>
+        <dc:publisher>
+            <foaf:Organization>
+                <vcard:adr>
+                    <vcard:Address>
+                       <vcard:locality>Cambridge</vcard:locality>
+                    </vcard:Address>
+                </vcard:adr>
+                <foaf:name>Cambridge Univ. Press</foaf:name>
+            </foaf:Organization>
+        </dc:publisher>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Yamada</foaf:surname>
+                        <foaf:givenName>Kōsaku</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Yamada</foaf:surname>
+                        <foaf:givenName>Kōsaku</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <dcterms:isReferencedBy rdf:resource="#item_10"/>
+        <dc:title>Electron correlation in metals</dc:title>
+        <dc:date>2010</dc:date>
+        <z:language>eng</z:language>
+        <z:libraryCatalog>K10plus ISBN</z:libraryCatalog>
+        <dc:identifier>ISBN 978-0-521-14768-2 978-0-521-57232-3</dc:identifier>
+        <prism:edition>1. paperback print</prism:edition>
+        <z:numPages>245</z:numPages>
+    </bib:Book>
+    <bib:Memo rdf:about="#item_10">
+       <rdf:value>Transl. from Japanese</rdf:value>
+    </bib:Memo>
+</rdf:RDF>
