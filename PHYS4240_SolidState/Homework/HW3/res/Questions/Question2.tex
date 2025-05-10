@@ -1,0 +1,163 @@
+\section{Lattice Sums}
+
+\begin{parts}
+
+\item First, we note that we can apply periodic boundary conditions for our lattice, implying that we are able to do the following (in 1D):
+
+  \begin{equation}
+    \psi(x + Na) = \psi(x) = e^{iqNa}\psi(x),
+  \end{equation}
+
+  where $N$ is the number of primitive cells and $a$ is the lattice constant. But this is saying that
+
+  \begin{equation}
+    e^{iqNa} = 1 \quad\rightarrow\quad qNa = 2\pi m,\ m \in \mathbb{Z}.
+  \end{equation}
+
+  Rearranging:
+
+  \begin{equation}
+    q = \frac{m}{N}\left( \frac{2\pi}{a} \right).
+  \end{equation}
+
+  With this in mind, we consider the sum in $(a)$:
+
+  \begin{equation}
+    \sum_{q} = e^{iqR_n},
+  \end{equation}
+
+  with $R_n$ a lattice vector. We know what $q$ has to be:
+
+  \begin{equation}
+    \rightarrow \sum_m e^{i2\pi nm/N}.
+  \end{equation}
+
+  Via periodic boundary conditions, we know that the sum is finite, so we can consider it a geometric series. In general, we know 
+
+  \begin{equation}
+    \sum_{k=0}^n ar^k = S_n =
+    \begin{alignedat}{1}
+    \begin{cases}
+      a(n+1) \quad & |r|=1\label{eq:3-2-1}, \\
+      a\left( \frac{1 - r^{n+1}}{1-r} \right) & \text{otherwise}.
+    \end{cases}
+    \end{alignedat}
+  \end{equation}
+
+  In our case we know that $r = \exp{i2\pi n/N}$, and the quantity $(n+1)$ corresponds to the number of terms in the sum. We have $N$, not $(N+1)$, since the upper limit is not inclusive as it is equivalent to the lower limit (which is inclusive). Considering the case with $|r| \neq 1$:
+
+  \begin{equation}
+    S_n = a\left( \frac{1 - e^{i2\pi n}}{1 - e^{i2\pi n/N}} \right) = 0
+  \end{equation}
+
+  because $e^{i2\pi n} = 1$ for $n \in \mathbb{Z}$. So, the only terms we care about for this sum are those for which $|r| = 1$, when $n/N$ is an integer. However, $0 \leq n < N$, so the only possible value of $n$ that satisfies this condition is $n=0$, meaning $R_n = 0$. So, from Eq.~\eqref{eq:3-2-1} (with $(n+1) \rightarrow N$ and $a = 1$:
+
+  \begin{equation}
+    \sum_q e^{iqR_n} = N\delta_{R_n,0}.
+  \end{equation}
+
+  The generalization to 3D is pretty simple. We can collapse the exponential to look like
+
+  \begin{equation}
+    e^{i\vv{q}\cdot\vv{R}_{\vv{n}}} = \prod_j e^{iq_j(R_n)_j},
+  \end{equation}
+
+  which is the product of three sums that are identical to the 1D case. So, defining $\prod N_i \equiv N$:
+
+  \begin{equation}
+    \boxed{\sum_{\vv{q}}e^{i\vv{q}\cdot\vv{R}_{\vv{n}}} = N\delta_{\vv{R}_{\vv{n}},\vv 0}.}
+  \end{equation}
+
+  Looking next at the sum in $(b)$, we have that
+
+  \begin{equation}
+    \sum_n e^{iqR_n} = \sum_n e^{i2\pi nm/N}.
+  \end{equation}
+
+  This proceeds similarly to the previous case. In the case that $|r| \neq 1$, the sum vanishes, but if $|r|=1$, then we get $N$ but this time the condition for $e^{iqR_n}=1$ is on $m$, since it is the term that appears in the exponent of $r$. Hence, in this instance our total condition is that $q$ is a reciprocal lattice vector, as that is the only way to retrieve 1 from the exponential. Therefore:
+
+  \begin{equation}
+    \boxed{\sum_n e^{i\vv{q}\cdot\vv{R}_{\vv{n}}} = N\delta_{\vv{q},\vv{G}}.}
+  \end{equation}
+
+  These results make sense: this is the formula for the discrete Fourier transform, and we know the normal Fourier transform of the exponential is the Dirac delta.
+
+  Lastly, the sum in $(c)$ is the square of the above result. The square doesn't affect the delta function itself, it still indicates that the result is zero unless $\vv{q} = \vv{0}$:
+
+  \begin{equation}
+    \abs{\sum_n e^{i\vv{q}\cdot\vv{R}_{\vv{n}}}}^2 = N^2\delta_{\vv{q},\vv{G}}.
+  \end{equation}
+
+
+
+
+\item To start, we cannot do anything here really without a function of some variable; we shall stay in 1 dimension and consider some new function $g$ defined like (all sums are understood to be from $-\infty$ to $+\infty$; just to avoid typing and notational confusion)
+
+  \begin{equation}
+    g(x) = \sum_n f(x+na).
+  \end{equation}
+
+  This function has the periodicity of the lattice; $g(x + ma) = \sum_n f(x + (n+m)a) = \sum_n f(x+a)$ based upon the fact that the sum is over infinity. Due to this, we know that we are able to express $g$ as a discrete Fourier series:
+
+  \begin{equation}
+    g(x) = \sum_\ell g_\ell e^{iG\ell x} = \sum_n f(x + na),
+  \end{equation}
+
+  where $G = 2\pi/a$. We know that for such series, we can find $g_\ell$ like so:
+
+  \begin{equation}
+    g_\ell = \frac{1}{a}\int_0^a \dd x \; \sum_n f(x+na) e^{-iG\ell x}.
+  \end{equation}
+
+  In this case, we can move the sum outside the integral:
+
+  \begin{equation}
+    g_\ell = \frac{1}{a}\sum_n \int_0^a \dd x \; f(x+na)e^{-ilGx}.
+  \end{equation}
+
+  This looks almost like the Fourier transform of $f$; to make it look closer like one, we can define $z \equiv x+na$ so that we have $f(z)$ in the integrand. With this, we also have that the integration limits change (but not the differential): $a -> na+a$ and $0 \rightarrow na$. With all this:
+
+  \begin{equation}
+    g_\ell = \frac{1}{a}\sum_n \int_{na}^{na+a} f(z) e^{-ilG(z-na)}.
+  \end{equation}
+
+  Obviously the term proportial to $na$ in the exponential will just be 1, so we are left with
+
+  \begin{equation}
+    g_\ell = \frac{1}{a}\sum_n \int_{na}^{na+a} f(z) e^{-ilGz}.
+  \end{equation}
+
+  Now, the sum is over all $n$. The integrand goes from $na$ to $na+a$, so what we are essentially doing is summing an infinite number of integrals of size $a$ that fully covers the entire domain with no overlap or missing space. At the end of the day, then, this is just the integral with respect to $z$ over all space:
+
+  \begin{equation}
+    g_\ell = \frac{1}{a} \int_0^{\infty} f(z) e^{-ilGz}.
+  \end{equation}
+
+  This is now precisely the Fourier transform of $f$:
+
+  \begin{equation}
+    g_\ell = \frac{1}{a} \tilde{f}(G\ell).
+  \end{equation}
+
+  If we plug this back into our expression for $g$:
+
+  \begin{equation}
+    \sum_n f(x+na) = \frac{1}{a}\sum_\ell \tilde{f}(G\ell) e^{iG\ell x}.
+  \end{equation}
+
+  If we now simple take $x \rightarrow 0$, the exponential is just 1 and we arrive at
+
+  \begin{equation}
+    \boxed{\sum_n f(na) = \frac{1}{a}\sum_\ell \tilde{f}(G\ell),}
+  \end{equation}
+
+  which is Poisson's summation formula.
+
+\end{parts}
+
+
+
+%%% Local Variables:
+%%% mode: LaTeX
+%%% TeX-master: "../../HW3"
+%%% End:

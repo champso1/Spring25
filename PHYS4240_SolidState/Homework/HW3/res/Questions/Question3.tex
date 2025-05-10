@@ -1,0 +1,53 @@
+\section{X-Ray Diffraction for a Diamond Lattice}
+
+We know that in the event we have an crystal with a multi-atom basis, the atomic form-factor is replaced with
+
+\begin{equation}
+  f(\vv{q}) = \sum_{s=1}^m e^{-i\vv{q}\cdot\vv{\tau}_s} f_s(\vv{q}).
+\end{equation}
+
+However, we know that diamond has two identical atoms in its unit cell, meaning $f_1 = f_2 = f_c$, so we can pull this factor out
+
+\begin{equation}
+  f(\vv{q}) = f_c(\vv{q}) \sum_{s=1}^2 e^{-i\vv{q}\cdot\vv{\tau}_s}.
+\end{equation}
+
+We can make another clever choice and define $\vv{\tau}_1 = \vv{0}$ for instance, meaning that we have
+
+\begin{equation}
+  f(\vv{q}) = f_c(\vv{q})(1 + e^{-i\vv{q}\cdot\vv{\tau}_2}).
+\end{equation}
+
+In this particular case, we know that in diamond (and silicon which shares this same property) certain values of $\vv{G}$, destructive interference occurs and $f(\vv{G})$ vanishes. This leads to
+
+\begin{equation}
+  f_c(\vv{Q})(1 + e^{-i\vv{Q}\cdot\vv{\tau}_2}) = 0.
+\end{equation}
+
+This is zero only if the quantity in parentheses is zero, or the exponential equals -1. This corresponds to the condition that $\vv{Q}\cdot\vv{\tau}_2 = \pi n$ where $n$ is an odd number. We now consider having the reciprocal lattice vectors given in the problem, and from the lecture notes we know that given our choice of $\vv{\tau}_1$ we have that
+
+\begin{equation}
+  \vv{\tau}_2 = \frac{a}{4}(\vh{x} + \vh{y} + \vh{z}).
+\end{equation}
+
+Simplifying the reciprocal lattice vector:
+
+\begin{align}
+  \vv{G} &= \frac{2\pi}{a}\left[ h(\vh{y} + \vh{z} - \vh{x}) + k(\vh{z} + \vh{x} - \vh{y}) + \ell(\vh{x} + \vh{y} - \vh{z}) \right] \\
+         &= \frac{2\pi}{a} \left[ (-h+k+\ell)\vh{x} + (h-k+\ell)\vh{y} + (h+k-\ell)\vh{z} \right].
+\end{align}
+
+Doing the dot product:
+
+\begin{gather}
+  \vv{G}\cdot\vv{\tau}_2 = \frac{\pi}{2}[-h+k+\ell + h-k+\ell + h+k-\ell] = \pi n, \\
+  \rightarrow \boxed{h+k+\ell = 2n.}
+\end{gather}
+
+Again, $n$ is an odd integer. Hence, for such a choice of our reciprocal lattice vectors, we achieve perfect destructive interference.
+
+
+%%% Local Variables:
+%%% mode: LaTeX
+%%% TeX-master: "../../HW3"
+%%% End:
