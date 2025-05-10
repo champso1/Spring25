@@ -40,7 +40,7 @@ def PrintMomenta(MomentaArray):
 #############
 
 # switch to print information or not:
-debug = True
+debug = False
 
 # print the showered events:
 printevents = False

@@ -30,7 +30,7 @@ gsl_root_fsolver* root_solver;
 
 LHAPDF::PDF* pdf;
 
-std::default_random_engine engine;
+std::default_random_engine engine(12345);
 std::uniform_real_distribution<double> distribution;
 auto randNum = std::bind(distribution, engine);
 
@@ -330,7 +330,7 @@ Emission generateEmission(double Q, double Q_cut, double tfac, double aS_over) {
 
 std::vector<Emission> Evolve(double Q, double Q_min, double aS_over) {
 	double t_min = Q_min*Q_min;
-	int num_emissions;
+	int num_emissions = 0;
 
 	std::vector<Emission> emissions;
 
@@ -398,7 +398,8 @@ void init() {
 	root_solver = gsl_root_fsolver_alloc(gsl_root_fsolver_brent);
 	pdf = LHAPDF::mkPDF("cteq6l1", 0);
 	// use max double precision when printing stuff
-	std::cout << std::setprecision(std::numeric_limits<double>::max_digits10); 
+	std::cout << std::setprecision(std::numeric_limits<double>::max_digits10);
+	engine.seed(12345);
 }
 void deinit() {
 	gsl_root_fsolver_free(root_solver);
@@ -418,7 +419,7 @@ int main() {
 	std::cout << "Evolving " << N_EVOLUTIONS << " branches from Q = " << Q_HARD << " GeV -> Q_c = " << Q_CUTOFF << " GeV\n";
 #endif
 
-	for (int i=0; i<N_EVOLUTIONS; i++) {
+	for (int i=0; i<1; i++) {
 		std::vector<Emission> emissions = Evolve(Q_HARD, Q_CUTOFF, aS_over);
 		for (const auto& x : emissions)
 			all_emissions.emplace_back(std::move(x));

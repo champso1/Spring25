@@ -141,7 +141,6 @@ double randDouble() {
 //   Partonic cross section
 // =============================
 
-// this can be constexpr'ed, everything else can't... :(
 double kappa() {
 	const double kappa = sqrt(2.0F) * FERMI_CONSTANT * Z_MASS_2 / (4.0F * PI * ALPHA);
 	return kappa;
@@ -347,6 +346,8 @@ EventResult generateEvents(const CrossSectionResult res, const LHAPDF::PDF *cons
 
  
 int main() {
+	std::cout << RHO_MIN << " " << RHO_MAX << " " << DELTA_RHO << "\n";
+	
 	LHAPDF::PDF* pdf = LHAPDF::mkPDF("cteq6l1", 0);
 	
 	CrossSectionResult res = computeCrossSection(pdf);
@@ -358,6 +359,8 @@ int main() {
 	std::cout << "Max weight/dsigma: " << res.maxWeight
 			  <<" with cosTheta = " << res.maxCosTheta << " and s_hat = " << res.maxS_hat << "\n" << std::endl;
 
+	return 0;
+	
 	std::cout << "Generating " << N_EVENTS << " events:\n";
 	EventResult events = generateEvents(res, pdf);
 	std::cout << "Printing first 10 events:\n";

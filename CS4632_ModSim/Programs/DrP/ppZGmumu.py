@@ -33,7 +33,7 @@ p = lhapdf.mkPDF("cteq6l1", 0)
 def generate_histo(array, name):
   
     fig, ax = plt.subplots()
-    n, bins = np.histogram(array, 20)
+    n, bins = np.histogram(array, 50)
 
     # get the corners of the rectangles for the histogram
     left = np.array(bins[:-1])
@@ -53,8 +53,12 @@ def generate_histo(array, name):
     ax.add_patch(patch)
     
     # update the view limits
-    ax.set_xlim(left[0], right[-1])
-    ax.set_ylim(bottom.min(), top.max())
+    if name=="pp-Q":
+        ax.set_xlim(0,200)
+        ax.set_ylim(bottom.min(), top.max())
+    else:
+        ax.set_xlim(left[0], right[-1])
+        ax.set_ylim(bottom.min(), top.max())
     plt.savefig(name + '.pdf')
 #    plt.show()
 
@@ -92,7 +96,7 @@ Gfermi = 1.16639E-5 # fermi constant
 sw2 = 0.222246 # sin^2(weinberg angle)
 
 # PP COM energy in GeV
-ECM = 14000
+ECM = 10000
 s = ECM**2
 print("hadron com energy:", ECM, "GeV")
 
@@ -159,7 +163,8 @@ GTR = Q_min
 # for costh this is 1 - (-1) = 2
 deltath = 2
 # choose rho limits (see transformation)
-rho1 = math.atan( Q_min**2 - MTR**2 ) / (GTR*MTR) 
+#rho1 = math.atan( Q_min**2 - MTR**2 ) / (GTR*MTR)
+rho1 = math.atan( (Q_min**2 - MTR**2 ) / (GTR*MTR) )
 rho2 = math.atan( (s - MTR**2) / (GTR*MTR) )
 deltarho = rho2 - rho1
 
@@ -194,7 +199,7 @@ for ii in range(0,N):
     Y = - 0.5 * math.log(hats/s)
     deltay = 2 * Y
     # get a random value of y
-    y = ( (2 * random.random()) - 1 ) * Y
+    y = (2 * random.random() - 1 ) * Y
     # calculate momentum fractions x1, x2
     x1 = math.sqrt(hats/s) * math.exp(y)
     x2 = math.sqrt(hats/s) * math.exp(-y)
@@ -235,7 +240,7 @@ PSx = []
 PSy = []
 
 # Number of events to generate
-Neve = 10
+Neve = 10000
 # counter of events generate 
 jj = 0
 # start generating events (i.e. "hit or miss")

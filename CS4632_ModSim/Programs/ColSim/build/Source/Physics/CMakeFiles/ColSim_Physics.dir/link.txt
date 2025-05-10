@@ -1,2 +1,0 @@
-/usr/bin/ar qc libColSim_Physics.a CMakeFiles/ColSim_Physics.dir/src/HardProcess.cpp.o CMakeFiles/ColSim_Physics.dir/src/LHEFFile.cpp.o CMakeFiles/ColSim_Physics.dir/src/Particle.cpp.o CMakeFiles/ColSim_Physics.dir/src/PhaseSpace.cpp.o CMakeFiles/ColSim_Physics.dir/src/Process.cpp.o
-/usr/bin/ranlib libColSim_Physics.a

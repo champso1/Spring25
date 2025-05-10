@@ -31,7 +31,7 @@ def PrintEmissions(EmissionsArray):
 #############
 
 # switch to print information or not:
-debug = False
+debug = True
 # switch to plot stuff or not:
 plot = True
 
@@ -45,7 +45,7 @@ Nevolve = 100000
 # the cutoff scale, e.g. 1 GeV. 
 Qc = 1.
 # the hard scale, e.g. 1000 GeV
-Q = 1000.
+Q = 750.
 
 ##########################
 # COMMAND LINE ARGUMENTS #
@@ -66,7 +66,7 @@ parser.add_option("-c", dest="Qc", default=Qc,
                   help="Set the cutoff scale for the evolution")
 
 parser.add_option("-o", dest="output", default=outputdirectory,
-                  help="Set the output directory for plots")
+\                  help="Set the output directory for plots")
 
 
 # parse the command line arguments
@@ -97,10 +97,12 @@ if scaleoption == "fixed":
 #################################################
 
 # the q -> q + g splitting function
-def Pqq(z): return CF * (1. + z**2)/(1.-z)
+def Pqq(z):
+    return CF * (1. + z**2)/(1.-z)
     
 # the q -> q + g splitting function *overestimate* 
-def Pqq_over(z): return 2.*CF/(1.-z)
+def Pqq_over(z):
+    return 2.*CF/(1.-z)
 
 # the scale choice of alphaS 
 def scale_of_alphaS(t, z):
@@ -125,8 +127,12 @@ def inversetGamma(r, aSover):
     return 1. - math.exp(- 0.5*r/CF/aSover)
 
 # the overestimated upper and lower limit for the z integral:
-def zp_over(t, Qcut): return 1.-math.sqrt(Qcut**2/t)
-def zm_over(t, Qcut): return math.sqrt(Qcut**2/t)
+def zp_over(t, Qcut):
+    return 1.-math.sqrt(Qcut**2/t)
+
+
+def zm_over(t, Qcut):
+    return math.sqrt(Qcut**2/t)
 
 # set the overestimate of alphaS once and for all
 def get_alphaS_over(Q, Qcut):
@@ -139,13 +145,16 @@ def get_alphaS_over(Q, Qcut):
     return alphaS_over
 
 # get the momentum fraction candidate for the emission
-def Get_zEmission(t, Qcut, R, aSover): return inversetGamma( tGamma(zm_over(t, Qcut), aSover) + R * ( tGamma(zp_over(t, Qcut), aSover) - tGamma(zm_over(t, Qcut), aSover)), aSover)
+def Get_zEmission(t, Qcut, R, aSover):
+    return inversetGamma( tGamma(zm_over(t, Qcut), aSover) + R * ( tGamma(zp_over(t, Qcut), aSover) - tGamma(zm_over(t, Qcut), aSover)), aSover)
     
 # calculate the transverse momentum of the emission
-def Get_pTsq(t, z): return z**2 * (1-z)**2 * t
+def Get_pTsq(t, z):
+    return z**2 * (1-z)**2 * t
 
 # calculate the virtual mass-squared of the emitting particle
-def Get_mvirtsq(t,z): return z*(1-z) * t
+def Get_mvirtsq(t,z):
+    return z*(1-z) * t
 
 # the function E(ln(t/Q**2)) = ln(t/Q**2) - (1/r) ln(R) for the numerical solution for the evolution scale, given random number R
 def EmissionScaleFunc(logt_over_Qsq, Q, Qcut, R, aSover):
