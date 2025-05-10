@@ -1,0 +1,112 @@
+2. What are the key stages in the product measurement process?
+  a) Identify anomalous measurements and analyze anomalous components
+  b) Choose measurements to be made, select components to be assessed.
+  c) Measure component characteristics
+
+3. Same as 2
+
+- All 3 choices are correct from my understanding; there should be an all of the above option. this question is also duplicated.
+
+
+
+
+
+13. What are the complementary approaches to security checking? (select multiple)
+  a) Tiger teams
+  b) Tool-based testing
+  c) Red-Blue teams
+  d) Experience-based testing
+
+- The phrasing of this question makes it seem as if I am meant to select the options that are complementary to each other. However, the "Red-Blue teams" option doesn't fit this, because my understanding is that red teams attack the system and blue teams defend, providing very helpful insights into the security of the system; this is itself complementary. Am I meant to select options which themselves describe complementary methods or select multiple of the options that are complementary with each other?
+
+
+
+
+
+
+14. Inspections is:
+  a) Incomplete versions of a system can be inspected
+  b) Discover of many errors
+  c) Broader quality attributes as well as program defects
+
+- This question is extremely unclear; it's asking about what inspections *are*, which none of the choices really answer. It could perhaps be what inspections *reveal*, but how am I supposed to know?
+
+
+
+
+
+
+15. Statistical quality assurance involves:
+  a) Tracing each defect to its underlying causes and using the Pareto principle to correct each problem found
+  b) Surverying customers to find out their opinions about the product quality
+  c) Tracing each defect to its underlying cause, isolating the "vital few" causes, and moving to to correct them
+  d) using sampling in place of exhaustive testing of software
+
+- A and C are identical; A just gives the name of the statistical method used to isolate the "vital few".
+
+
+
+
+
+16. What tests should be included in object class testing?
+  a) True
+  b) False
+
+- this obviously cannot be answered with a true/false.
+
+
+
+
+
+
+27. The system context and interaction model is a static model of the other systems in the environment of the system being designed.
+  a) True
+  b) False
+
+
+28: The system context and interaction model is interaction model is a dynamic model that describes how the system is designed to interact with its environment
+  a) True
+  b) False
+
+- my understanding is that the system context is the static model that describes the other systems in the environment of the main system, and the interaction model is the dynamical one that describes the interactions. Both of these questions ask whether *both* are *either* static or dynamic, which is impossible to answer.
+
+
+
+
+
+
+29. Which of the folllowing is not one of the five design class types?
+  a) Communications components
+  b) Database components
+  c) Interface components
+  d) Memory management components
+
+- these are not design class types.
+
+
+
+
+
+39. Which model depicts the look and feel of the user interface along with all supporting information?
+  a) User model
+  b) System perception
+  c) User model
+  d) Implementation model
+
+- I believe the answer is the User Model, which both A and C list.
+
+
+
+
+
+
+42. The essential tools in a software development platform?
+  a) System be distributed
+  b) Physical view that shows the distribution of software on the system hardware
+  c) Graphical editing tools for UML models
+  d) Encourages a detailed analysis of the system
+
+- This question is just very unclear; what specific thing about essential tools in a software development platform are we being asked about?
+
+
+
