@@ -1,0 +1,29 @@
+\section{Discussion}\label{sec:7-discussion-conclusion}
+
+Before making some definitive conclusions, it is worthwhile to discuss about some of the results presented in the final few sections. First, in Section~\ref{sec:4-results}, we gave plots for all of the kinematic variables for both the hard scattering and parton showering cases, as well as physical rationale for why the distributions look the way that they do. It was mentioned repeatedly that lower energy results are more likely, but this may be counterintuitive, so we briefly describe why this should be the case.
+
+One would expect that, for a very high center-of-mass energy collision between the two protons, the resulting events are also quite high energy. Relative to other energy scales, this is true, as we saw in Section~\ref{sec:5-sensitivity-scenario}. However, the reason why the curves themselves aren't reversed, i.e. slowly increase up to the main center-of-mass energy and peak there, is because its easier to take smaller components of the main energy and have process occur, and its harder to put all of it into one process. Specifically in the case of $pp \rightarrow Z/\gamma^* \rightarrow \mu^+\mu^-$, this process is not as likely to occur with higher portions of the main energy because other processes (that I have not modeled) dominate in that regime. There are particles and other interactions that are simply more likely at higher energies.
+
+All this is to simply to say that the shapes of the distributions given in the results section are exactly what we would expect in general for any process, but also specifically for this process.
+
+There was one exception, that being the super small shifting of the $Q$ distribution for the generated hard scattering process. As mentioned in that section, the shift was noticeable and definitely present (after having generated well over 10 million events multiple times, so there was no statistical fluctuations that led to the difference), but much smaller than expected. This is something that I was never able to figure out, because I would have expected similar distributions to the what $p_T$ distributions looked like for varying the initial evolution energy in the parton showering process, which was far more pronounced. My only estimation is that I am measuring a different $Q$ than I think, and it is simply following a similar pattern as other energy/momentum-based variables. Again, however, there was an expected difference, despite it being small, meaning it is still performing \textit{something} correctly.
+
+
+
+
+\section{Conclusion}
+
+To conclude, I have presented here a thorough report on \textsc{ColSim}, a program that was developed to model and simulate proton-proton collisions at large colliders like the LHC by implementing the calculation of the cross section for $pp \rightarrow Z/\gamma^* \rightarrow \mu^+\mu^-$, as well as the generation of events for that process. Further, I implemented the simulation of parton showering and generating events for this case as well. We found that the results from the simulation in the hard scattering sector agree very well with other tools such as \textsc{MadGraph5}, and the parton showering results agree very well with \textsc{Pythia8}, though these comparisons were drawn qualitatively due to incompatibilities between \textsc{ColSim} and \textsc{Pythia8}. Evidently, the model performs very well and achieved its purpose.
+
+There are many directions in which to further progress this model. One of the main pieces would be the implementation of different process, such as those governed by Quantum Chromodynamics (QCD), as those play a big role at higher energies. Further, upon successful implementation of such a process, specifically one with quarks in the final state, it will be possible to then directly connect the hard scattering and parton showering components of the simulation and get coherent results for an entire process chain. After additional things like this, it would be more reasonable to compare results numerically with \textsc{Pythia8} and get a better idea of the accuracy of the model. 
+
+Other improvements that could be made are related to the code itself, its versioning and documentation, as well as making it more functional for the end user. While I have relinquished as much control to the user as possible in terms of the physical parameters that go into the simulation, it could be beneficial to allow the user to fine tune, for example, the plotting, and allow him/her to customize the appearance of the plots more. An (statically linked) executable form of \textsc{ColSim} would also be nice, removing the need for the user to worry about linking or compiling.
+
+Despite all of these possible improvements, I feel that \textsc{ColSim} was very successful and largely accomplished both the goals I set out to achieve as well as the requirements for this course. It may be hard to quantify this since the model is much different than what I reckon most of the other models were like, but I spent a lot of time reading, programming, and doing more reading to understand the results, and I am proud of the work that has been done.
+
+
+
+%%% Local Variables:
+%%% mode: LaTeX
+%%% TeX-master: "../../FinalMilestone"
+%%% End:

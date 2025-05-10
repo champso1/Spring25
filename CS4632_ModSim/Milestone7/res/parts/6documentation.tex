@@ -1,0 +1,22 @@
+\section{Documentation}
+
+\subsection{Assumptions/Limitations}
+
+There are few assumptions made on the actual model itself, but rather assumptions made in the underlying theory governing the cross section calculations and the fact that we are able to model parton evolution via the parton showering algorithms. I don't want to go into detail about the specific physics, but I will describe one thing, which I described in one milestone a while back.
+
+Physics, in the quantum scale, cannot be solved exactly in any way. Our best understanding of quantities like the cross section (which governs the rest of the process) is in terms of an infinite series of terms that, in the limit to infinity, converge to the answer. However, we cannot compute an infinite number of terms. In fact, most modern calculations only consider three; mine considers one. The main assumption behind the model is that the ``leading-order'' result, i.e. keeping only one term, is already a very accurate solution to the problem. Considering that our results for the cross section and qualitative picture of the parton showering match so well already to programs which consider higher-order terms in the series is indicative of the fact that despite the assumption of only keeping leading-order terms, we are still capturing enough of the fundamental physics of the process itself.
+
+Therefore, in terms of limitations, the model does not consider all possible ``intermediate'' processes that would in principle physically occur in a proton-proton collision. Even in terms of the specific interaction I am considering, $pp \rightarrow Z/\gamma^* \rightarrow \ell^+\ell^-$, the intermediate $Z/\gamma^*$ particles are representative of the leading order result. If I really wanted to consider more terms, there would be further interactions between the $pp$ and $\ell^+\ell^-$. Again, though, the leading-order result is already very strong at capturing the physics of the problem.
+
+However, as I just mentioned, there are more processes in the main $pp$ collision that are not covered here. Quantum chromodynamical (QCD) interactions are not even considered, and they are a major part of our current understanding of high-energy interactions. However, the theory governing QCD is extremely complex, and something that is highly non-trivial to get implemented and working correctly. Because of this, it is safe to say that my model does not fully model precisely what happens in real $pp$ collisions; but, no program \textit{can} by virtue of how we construct our theory in the first place. So, sure, my model ``failed'' at modeling true $pp$ collisions, but by capturing a leading order result in this way, I have already covered a large portion of the infinite series of terms.
+
+Again, in terms of the model itself and the implementation, there were few limitations or assumptions made. One  thing that could affect the model would be the number of events generated and number of Monte Carlo iterations to determine results. Of course, a large but finite number is chosen as a default and is used for a majority of the results presented so far, meaning there is \textit{some} statistical error, but not enough to significantly affect the model output, specifically in the physical interpretation of the results.
+
+The only other limitation, when it came to the V\&V process, was that comparison to other models for the parton showering process was impossible due to the relatively simplistic nature of my implementation. The entire process is extremely hard and incorporates a lot of physics, and it simply wasn't possible to strip other programs down to this level. We were therefore limited to simple qualitative comparisons, but these still captures the physics of the process and we found qualitative agreement, as best we could.
+
+
+\subsection{Documentation Standardization}
+
+The rest of this section appears to me to be guidelines for the previous parts of the milestone that have already been covered, so I reckon there is nothing else to say.
+
+

@@ -1,6 +1,6 @@
 \section{Theory/Literature Review}\label{sec:Theory-Lit-Review}
 
-Many of the individual things listed in this section are, in the land of computational physics, well known, meaning that many individual results aren't themselves profound results from any single paper. Rather, the entire suite of techniques presented in this section are all implemented to some extent
+Many of the individual things listed in this section are, in the land of computational physics, well known, meaning that many individual results aren't themselves are no longer worthy of being individually cited. Rather, a computational physics textbook like Ref.~\cite{Press_2007}.
 
 \subsection{The Hard Scattering Process}
 
@@ -26,7 +26,7 @@ where the $\tau_i$ lie in the range $(t_1,t_2)$. At this stage, we simply \texti
 
 where $\rho_i$ is the random number.
 
-Of course, there are myriad other ways to solve integrals, but in particle physics, our problems and integrals are often formulated such that the dimensionality of the domain is large enough to dissuade the usage of quadrature-based integration schemes. Such integration schemes are more efficient in lower dimensions as they converge faster, but get much slower compared to Monte Carlo integration, whose rate of convergence increases in ``constant time'' in relation to the dimension. Of course, as an additional note, the reason this is a requirement at all is that the integrals we are faced with are very often mathematically impossible to solve; e.g. the answer cannot be expressed in closed form.
+Of course, there are myriad other ways to solve integrals, but in particle physics, our problems and integrals are often formulated such that the dimensionality of the domain is large enough to dissuade the usage of quadrature-based integration schemes. Such integration schemes are more efficient in lower dimensions as they converge faster, but get much slower compared to Monte Carlo integration, whose rate of convergence increases in ``constant time'' in relation to the dimension. Of course, as an additional note, the reason this is a requirement at all is that the integrals we are faced with are very often mathematically impossible to solve analytically; e.g. the answer cannot be expressed in closed form.
 
 Considering the physical process of the proton-proton collision, as mentioned before, the starting point is the hard scattering process, which occurs immediately after the collision. We make one assumption (admittedly a highly non-trivial one, but one that I have nowhere near enough time to explain) that at this energy scale, the physics related to the interaction amongst the quarks is independent of how the quarks are structured within the proton itself. In other words, we only care about the fact that the individual quarks carry only a fraction of the total momentum of the proton, and we can discard any other piece of information related to any other hadronic structure. With this assumption in mind, we can then write an expression for the \textit{cross section} $\sigma$ for proton-proton collisions. The cross section is, roughly speaking, the probability for a certain event to occur. It has units of area, so another way that this can be thought of is how much of a cross-sectional area the target provides to the other object (this is actually pretty much exactly what the cross section is). Intuitively, this still is roughly a probability: if the target is larger, i.e. the cross section is higher, there is a larger chance for the other particle to hit the target. The full expression is given as:\footnote{This formula, along with many of the following general results, can be found in any book on quantum field theory; see, for instance, Ref.\cite{peskin-schroeder}.}
 
@@ -165,65 +165,6 @@ and again, the hats indicate the overesimated quantities.
 To recap: we generate random numbers and compare to the Sudakov form factor to determine whether an emission occurs or not. If one does occur, we numerically solve for the value of $t$ using Eq.~\eqref{eq:parton-shower-t}. We generate the gluon and give it a momentum fraction $z$ via Eq.~\eqref{eq:parton-shower-z}. We then accept this new event based upon the ratio of the original to the overestimated quantities. Then, the scale $t$ that the emission occurred at becomes the new $t_{\mathrm{max}}$, and we continue until we reach our cutoff.
 
 We are then left with some number of emitted gluons along with corresponding momenta and other kinematics. In higher-order limits, these would potentially scatter with other gluons or quarks, or possibly decay into quark/anti-quark pairs, and so on. After this, they would hadronize.
-
-
-\subsection{Some Basic Results}
-
-\begin{figure}[ht]
-  \centering
-  \begin{tikzpicture}
-    \begin{feynman}
-      \vertex (a);
-      \vertex[above left=of a] (i1);
-      \vertex[below left=of a] (i2);
-      \vertex[right=of a] (b);
-      \vertex[above right=of b] (f1);
-      \vertex[below right=of b] (f2);
-
-      \diagram *{
-        (i1) -- [fermion, edge label=$q$] (a) -- [photon, edge label=$Z/\gamma$] (b) -- [fermion, edge label=$\mu^-$] (f1),
-        (i2) -- [anti fermion, edge label'=$e^+$] (a),
-        (b) -- [anti fermion, edge label'=$e^-$] (f2)
-      };
-    \end{feynman}
-  \end{tikzpicture}
-  \caption{Feynman diagram for the process $q\bar{q} \rightarrow Z/\gamma \rightarrow \mu^+\mu^-$.}
-  \label{fig:gg2Zg2mumu}
-\end{figure}
-
-At the time of writing, I have implemented the numerical form of the partonic cross section for the process $q\bar{q} \rightarrow Z/\gamma \rightarrow \mu^+\mu^-$. In word form, a quark/anti-quark pair interact via either a $Z$ boson or a photon (in this case we will consider the $Z$ boson), and create a muon/anti-muon pair. The muon is roughly the same as the electron in terms of physical properties with the one exception that it is significantly heavier: the electron has a mass of $\qty{0.511}{\mega\electronvolt}$ and the muon has a mass of $\qty{105.66}{\mega\electronvolt}$. The diagrammatical representation is given in Fig.~\ref{fig:gg2Zg2mumu}, which is called a \textit{Feynman diagram}. Time is read left-to-right, and while this pictoral representation doesn't fully encode exactly what physics happens, it is a good way to visualize it, and there are rules associated with them that allow one to go from the diagram to the exact mathematical expression for the cross section.
-
-The partonic cross section is given by
-
-\begin{equation}
-  \diff{\sigma}{\cos\theta} = \frac{2\pi\alpha_s}{4\hat{s}}[A_0(1 + \cos\theta^2) + A_1\cos\theta],
-\end{equation}
-
-where we have the following definitions:
-
-\begin{align}
-  A_0 &= Q_f^2 - 2Q_f V_\mu V_f \chi_1 + (A_\mu^2 + V_\mu^2)(A_f^2 + V_f^2)\chi_2, \\
-  A_1 &= -4Q_f A_\mu A_f \chi_1 + 8A_\mu V_\mu A_f V_f \chi_2, \\
-  \chi_1(\hat{s}) &= \kappa\hat{s}(\hat{s} - M_Z^2)/((\hat{s} - M_Z^2)^2 + \Gamma_Z^2M_Z^2), \\
-  \chi_2(\hat{s}) &= \kappa^2\hat{s}^2/((\hat{s} - M_Z^2)^2 + \Gamma_Z^2M_Z^2), \\
-  \kappa &= \sqrt{2} G_f M_Z^2 / (4\pi\alpha_s).
-\end{align}
-
-Here, $Q_f$ is the charge of the initial quark, the $V$'s are constants determined based on the type of the particle with the $f$ subscript corresponding to the incoming quark and the $\mu$ subscript corresponding to the final state muons, $\hat{s}$ is the center of mass energy of this hard process, $\Gamma_Z$ is the decay width of the $Z$ boson which is related to its lifetime, and $M_Z$ is its mass. Lastly, $G_f$ is the Fermi constant.
-
-With some redefinitions of the kinematic variables present in the formula for the cross section given in Eq.~\eqref{eq:cross-section}, we can write
-
-\begin{equation}
-  \frac{\dd\sigma}{\dd\tau\dd y \dd\cos\theta} = \sum_{q,q'}f_q(x_1 = \sqrt{\tau}e^{y}, Q = \hat{s} = \tau S)f_{q'}(x_2 = \sqrt{\tau}e^{-y}, Q = \hat{s} = \tau S) \cdot \diff{\hat{\sigma}}{\cos\theta},
-\end{equation}
-
-where $S$ is the center of mass energy of the two protons. We can perform this integral via Monte Carlo integration as described above, by randomly sampling values of $\tau$, $y$, and $\cos\theta$. The actual expressions for the domains of these variables takes a bit of work since some are dependent on other variables, so I won't include them; the basic principle should be apparent. After running the code, we get a cross section of
-
-\begin{equation}
-  \sigma \approx \num[separate-uncertainty=true]{1675.109 +- 5.9439}\unit{\pico\barn}
-\end{equation}
-
-where the unit $\unit{\pico\barn}$ is the picobarn, a unit of area. Running \textsc{MadGraph5} with as close to the same settings as possible gets us a value of $\num[separate-uncertainty=true]{1684 +- 1.3}\unit{\pico\barn}$, so we can tell already that our leading order approximation works very well, as does the program in general.
 
 
 

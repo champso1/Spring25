@@ -1,0 +1,36 @@
+\documentclass[titlepage]{article}
+\usepackage{Preamble}
+\usepackage{import}
+
+\usepackage[
+backend=biber,
+style=ieee
+]{biblatex}
+\addbibresource{./res/sources.bib}
+
+\title{CS 4632: Modeling and Simulation \\[5pt] Milestone 6: Sensitivity and Scenario Analysis}
+\author{Casey Hampson (ID: 001079192)}
+\date{16 April, 2025}
+
+\begin{document}
+    \maketitle
+    \pagebreak
+    \tableofcontents
+    \pagebreak
+
+    \import{./res/parts}{1intro.tex}
+    %\import{./res/parts}{2defterms.tex}
+    \import{./res/parts}{3methodology.tex}
+    \import{./res/parts}{4results.tex}
+    \import{./res/parts}{5discussion.tex}
+    \import{./res/parts}{6conclusion.tex}
+
+    \pagebreak
+    \nocite{*}
+    \printbibliography
+\end{document}
+
+%%% Local Variables:
+%%% mode: LaTeX
+%%% TeX-master: t
+%%% End:

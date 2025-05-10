@@ -1,0 +1,16 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{\PYGZsh{} Center\PYGZhy{}of\PYGZhy{}Mass energy: measured in TeV}
+\PYG{n+na}{ECM}\PYG{o}{=}\PYG{l+s}{14.0}
+
+\PYG{c+c1}{\PYGZsh{} pdf information}
+\PYG{n+na}{PDFName}\PYG{o}{=}\PYG{l+s}{CT18NNLO}
+\PYG{n+na}{PDFMemberNo}\PYG{o}{=}\PYG{l+s}{0}
+
+\PYG{c+c1}{\PYGZsh{} \PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}}
+\PYG{c+c1}{\PYGZsh{} \PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{} Hard Scattering \PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}}
+\PYG{c+c1}{\PYGZsh{} \PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}}
+\PYG{n+na}{Process}\PYG{o}{=}\PYG{l+s}{PP2Zg2ll}
+
+\PYG{c+c1}{\PYGZsh{} number of evaluations of the differential cross section in the Monte Carlo integration}
+\PYG{n+na}{NumXSIterations}\PYG{o}{=}\PYG{l+s}{1000000}
+\end{MintedVerbatim}

@@ -1,0 +1,43 @@
+\documentclass[titlepage]{article}
+\usepackage{Preamble}
+\usepackage{import}
+
+\usepackage[
+backend=biber,
+style=ieee
+]{biblatex}
+\addbibresource{./res/sources.bib}
+
+\title{CS 4632: Modeling and Simulation \\[5pt] Milestone 7: Validation and Verification}
+\author{Casey Hampson (ID: 001079192)}
+\date{28 April, 2025}
+
+\begin{document}
+    \maketitle
+    \pagebreak
+    \tableofcontents
+    \pagebreak
+
+    \import{./res/parts}{0abstract.tex}
+    \pagebreak
+    
+    \import{./res/parts}{1intro.tex}
+    \import{./res/parts}{2theory.tex}
+    \import{./res/parts}{3model.tex}
+    \import{./res/parts}{4results.tex}
+    \import{./res/parts}{5sensitivity-scenario.tex}
+    \import{./res/parts}{6verification-validation.tex}
+    \import{./res/parts}{7discussion-conclusion.tex}
+
+    \pagebreak
+    \printbibliography
+    
+    \pagebreak
+    \appendix
+    \import{./res/parts}{99appendix.tex}
+\end{document}
+
+%%% Local Variables:
+%%% mode: LaTeX
+%%% TeX-master: t
+%%% End:

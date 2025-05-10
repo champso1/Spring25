@@ -1,0 +1,28 @@
+\section{Common Pitfalls}
+
+
+\subsection{Validation Mistakes}
+
+\begin{itemize}
+\item \textbf{Ignoring Data Discrepancies}: The one discrepancy between expectations that arose from the previous milestone was solved after further consideration of the physics/theory behind the process. Other discrepancies are impossible to quantify, specifically in the parton showering case, because it is impossible to ensure that \textsc{Pythia8} is operating under identical conditions. The best we were able to do is quantitatively compare the output distributions, and we found little discrepancies.
+\item \textbf{Inadequate Data}: There was no out-of-data or inadequate data being compared against.
+\item \textbf{Overlooking Parameter Relevance}: All input parameters were considered thoroughly.
+\item \textbf{Over-Reliance on a Single Validation Model}: In principle, this is happening. However, when comparing to existing data or existing runs within \textsc{Pythia8}, there are different models for calculations of the same process, but are computed to extremely low error due to expanding to higher perturbative orders, which I cannot consider. Therefore, the comparison between these different models is not relevent for my case because my error is far higher than that done in \textsc{Pythia8}. I reckon, hence, that this isn't an issue.
+\item \textbf{Failure to Cross-Validate}: I cross-validated well for my model.
+\item \textbf{Misinterpretation of Validation Metrics}: I don't believe any metrics are misinterpreted.
+\end{itemize}
+
+
+\subsection{Verification Oversights}
+
+\begin{itemize}
+\item \textbf{Not Documenting Failed Tests}: No tests that I conducted failed.
+\item \textbf{Insufficient Test Coverage}: As mentioned there were some parts such as various utility functionality that were not thoroughly tested, but due to being such minor parts of the code, I felt it unncessary to extensively document. The main running parts of the code were tested/documented.
+\item \textbf{Lack of Systematic Approach}: I feel that the test cases were approached systematically.
+\item \textbf{Skipping Edge Cases}: I covered all edge cases.
+\item \textbf{Overlooking Regression Testing}: All the way back to several milestones ago I quotes identical values for the calculation of the cross section and basic distribution shapes. Nothing has changed, i.e. nothing has broken. This wasn't \textit{extensively} tested, but it is clear nothing has broken from code changes.
+\end{itemize}
+
+\subsection{Avoid Overfitting in Validation}
+
+A separation between different datasets for different purposes is not necessary in this case. With enough iterations for the Monte Carlo algorithm enough events generated to study the outputted kinematic distributions, we are merely converging to the actual values that would appear in the real world.

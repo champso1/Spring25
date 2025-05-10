@@ -1,0 +1,28 @@
+\documentclass[titlepage]{article}
+\usepackage{Preamble}
+\usepackage{import}
+
+\usepackage[
+backend=biber,
+style=ieee
+]{biblatex}
+\addbibresource{./res/Sources/sources.bib}
+
+\title{ColSim: A Monte-Carlo event generator for proton-proton collisions \\[5pt] CS 4632: Modeling and Simulation}
+\author{Casey Hampson}
+
+\begin{document}
+    \maketitle
+    \pagebreak
+
+    \import{./res/Parts}{All.tex}
+
+    \pagebreak
+    \nocite{*}
+    \printbibliography
+\end{document}
+
+%%% Local Variables:
+%%% mode: LaTeX
+%%% TeX-master: t
+%%% End:

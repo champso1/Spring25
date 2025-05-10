@@ -1,0 +1,77 @@
+\section{Validation and Verification Checklist}
+
+\subsection{Verification Checklist}
+
+\begin{itemize}
+\item[\checkmark] Have you compared simulation outputs with real-world data?
+\item[\checkmark] Are all model parameters within reasonalbe and justified ranges?
+\item[?] Does the model's behavior align with expert expectations?
+  \begin{itemize}
+  \item I didn't explicitly bring results to an expert. However, as I mentioned earlier, the program was written with help from an expert, so I feel this is more or less satisfied.
+  \end{itemize}
+\item[\checkmark] Have you documented all validation reuslts using appropriate visuals?
+\item[?] Have you performed historical data validation?
+  \begin{itemize}
+  \item As described earlier, historical data should match, since it describing the same physics, but just with more error, meaning I feel it not very instructive to compare to historical data.
+  \end{itemize}
+\item[\checkmark] Did you conduct cross-model validation where applicable?
+\end{itemize}
+
+
+\subsection{Verification Checks}
+
+\begin{itemize}
+\item[\checkmark] Have you tested the model with boundary and edge conditions?
+\item[\checkmark] Did you verify that all input parameters are properly handed?
+\item[\checkmark] Have you checked for mathematical and logical consistency in your code?
+\item[\checkmark] Is the model's behavior reasonable across different time scales or scenarios?
+\item[\checkmark] Have you systematically documented all testing results?
+\item[?] Did you perform unit, integration, and regression testing.
+  \begin{itemize}
+  \item As mentioned earlier, my interpretation of the integration testing is the incorporation of the different elements into the main code, which is simply what the main program does, the output of which has been documented so far. Further, regression testing wouldn't be particularly beneficial since, just like with the historical data, previous results should (and do) describe the same physics with the same result, modulo some minor API changes and error changes.
+  \end{itemize}
+\item[$\times$] Are you following version control best practices?
+  \begin{itemize}
+  \item This is something that I need to improve on. At this point in the semester it's too late to fix this, since so little additional code is going to be written. 
+  \end{itemize}
+\end{itemize}
+
+
+\subsection{Documentation Checks}
+
+I feel these checkpoints are more or less what have already been checked, but alas:
+
+\begin{itemize}
+\item[\checkmark] Is all documentation up to date and reflective of the current model?
+\item[\checkmark] Have you documented all assumptions and limitations?
+\item[\checkmark] Are test cases and results properly recorded?
+\end{itemize}
+
+
+
+\subsection{Version Control Checks}
+
+\begin{itemize}
+\item[$\times$] Are all changes commited with descriptive messages?
+  \begin{itemize}
+  \item Changes are \textit{committed}, but not necessarily with descriptive messages.
+  \end{itemize}
+\item[$\times$] Have you tagged versions appropriately?
+\item[\checkmark] Is the repository synchronized with the remote server?
+\end{itemize}
+
+
+\subsection{Data Validation Completeness Checks}
+
+\begin{itemize}
+\item[\checkmark] Is the data used for validation complete and reliable?
+\item[\checkmark] Have you checked for data inconsistencies or anomalies?
+\end{itemize}
+
+
+
+
+%%% Local Variables:
+%%% mode: LaTeX
+%%% TeX-master: "../../Milestone7"
+%%% End:

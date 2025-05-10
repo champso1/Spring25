@@ -1,0 +1,7 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{+w}{  }mkdir\PYG{+w}{ }build
+\PYG{+w}{  }\PYG{n+nb}{cd}\PYG{+w}{ }build
+\PYG{+w}{  }cmake\PYG{+w}{ }..
+\PYG{+w}{  }cmake\PYG{+w}{ }\PYGZhy{}\PYGZhy{}build\PYG{+w}{ }.
+\PYG{+w}{  }cmake\PYG{+w}{ }\PYGZhy{}\PYGZhy{}install\PYG{+w}{ }.
+\end{MintedVerbatim}

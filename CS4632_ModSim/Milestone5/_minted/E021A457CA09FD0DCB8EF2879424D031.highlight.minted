@@ -1,0 +1,28 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{c+cp}{\PYGZsh{}}\PYG{c+cp}{include}\PYG{+w}{ }\PYG{c+cpf}{\PYGZdq{}ColSim/ColSim.hpp\PYGZdq{}}
+\PYG{k}{using}\PYG{+w}{ }\PYG{k}{namespace}\PYG{+w}{ }\PYG{n+nn}{ColSim}\PYG{p}{;}
+\PYG{k}{using}\PYG{+w}{ }\PYG{k}{namespace}\PYG{+w}{ }\PYG{n+nn}{std}\PYG{p}{;}
+
+\PYG{c+cp}{\PYGZsh{}}\PYG{c+cp}{include}\PYG{+w}{ }\PYG{c+cpf}{\PYGZlt{}iostream\PYGZgt{}}
+
+\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n+nf}{main}\PYG{p}{(}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{  }\PYG{c+c1}{// create the main object}
+\PYG{+w}{  }\PYG{n}{ColSimMain}\PYG{+w}{ }\PYG{n}{colsim}\PYG{p}{;}
+
+\PYG{+w}{  }\PYG{n}{colsim}\PYG{p}{.}\PYG{n}{init}\PYG{p}{(}\PYG{n}{ColSim}\PYG{o}{:}\PYG{o}{:}\PYG{n}{ColSimMain}\PYG{o}{:}\PYG{o}{:}\PYG{n}{HARD\PYGZus{}PROCESS}\PYG{p}{)}\PYG{p}{;}
+
+\PYG{+w}{  }\PYG{c+c1}{// start/initialize generation}
+\PYG{+w}{  }\PYG{n}{colsim}\PYG{p}{.}\PYG{n}{start}\PYG{p}{(}\PYG{p}{)}\PYG{p}{;}
+
+\PYG{+w}{  }\PYG{c+c1}{// generate events}
+\PYG{+w}{  }\PYG{n}{colsim}\PYG{p}{.}\PYG{n}{generateEvents}\PYG{p}{(}\PYG{l+m+mi}{100000}\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{	}
+\PYG{+w}{  }\PYG{c+c1}{// generate the plots}
+\PYG{+w}{  }\PYG{n}{colsim}\PYG{p}{.}\PYG{n}{generatePlots}\PYG{p}{(}\PYG{p}{)}\PYG{p}{;}
+
+\PYG{+w}{  }\PYG{c+c1}{// stop/deinitialize generation}
+\PYG{+w}{  }\PYG{n}{colsim}\PYG{p}{.}\PYG{n}{stop}\PYG{p}{(}\PYG{p}{)}\PYG{p}{;}
+
+\PYG{+w}{  }\PYG{k}{return}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\end{MintedVerbatim}

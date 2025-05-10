@@ -1,0 +1,20 @@
+\section{Introduction}
+
+The previous milestone, Sensitivity and Scenerio Analysis, was concerned with testing the model's performance and behavior by varying its inputs. This milestone builds on top of the previous milestone by more rigorously comparing model outputs with that from other real-world models and results. Additionally, it seeks to ensure that the various components of the model are performing as expected and well enough within the entire program.
+
+
+\subsection{Disclaimer}\label{sec:disclaimer}
+
+As a disclaimer, I want to mention a few specific features of my particular model, something that I emailed you about recently. In particular, when it comes to input variation defining expectations for the model's behavior, my situation is a bit unique. I'll use the same analogy I used in the email: if I were programming something like a traffic simulation, for instance, there are a number of parameters that one can realistically vary and get perfectly viable results. These could be number of cars, structure of the roads, number of lanes, and so on. All of these would in principle lead to perfectly valid behavior that would be observed in the real world (I-75, at any point of the day, being a fantastic example of the maximum amount of traffic possible).
+
+My model, however, is a bit different. Its entire formulation, in the physics sense, it based on a number of different theorems, assumptions, etc. in quantum physics that essentially restrict the number of inputs I can vary before the model becomes either not representative anymore of the process I want to simulate, or worse, not even mathematically valid in the first place (i.e. it invalidates certain assumptions present in the theory). Because of this, there is only so much I am able to do in terms of, like in the previous model, definitions of scenarios and whatnot, since there are really only two meaningful scenarios: either I provide a certain set of inputs that specify the process I want and are mathematically/physically valid, or I don't and the output should be considered bogus no matter if it breaks the model.
+
+With regards to this model, there are of course purely statistical tests I can run, most notably on the Monte Carlo part of the simulation, along with the event generation side of things since those types of tests are related purely to the fact that there are a limited number of samples I am considering. On the other hand, trying to quantify \textit{systematic} errors, which are what we physicists call errors associated with varying inputs and considering phenomena that could impact the particular process under study, is extremely challenging. Specifically in the case of my model, the best that I can do is quote research on errors associated with the underlying theorems, since I am unable to numerically run these tests as I described earlier. Hopefully I have plead my case well enough; I know that this is my own fault for choosing such an incompatible model to simulate for this class, but it is of course too late to change now, so I just have to settle with what I can do.
+
+As a practical note about this particular milestone, I have included every single section present in the provided template just in case, but I have described what I hope to be valid rationale for why I did not go through with the guidelines for that particular section.
+
+
+%%% Local Variables:
+%%% mode: LaTeX
+%%% TeX-master: "../../Milestone7"
+%%% End:

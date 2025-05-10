@@ -1,0 +1,106 @@
+\section{ColSim Configuration File}\label{sec:colsim-config-file}
+
+\begin{listing}[ht!]
+\begin{minted}{text}
+# -----------------------------
+# ---- General Information ----
+# -----------------------------
+# pdf set to use
+PDFName=CT18NNLO
+
+# ---------------------------
+# ----- Hard Scattering -----
+# ---------------------------
+# number of evaluations of the differential cross section in the Monte Carlo integration
+NumXSIterations=1000000
+
+# Center-of-Mass energy: measured in TeV
+ECM=14.0
+
+# the lowest energy used in calculating the cross section
+MinCutoffEnergy=60.0
+
+# these are intermediate calculated parameters used in a change-of-variables transformation
+# during the cross section calculation -- there is no real physical significance
+TransformationEnergy=60.0
+
+# --------------------------
+# ---- Parton Showering ----
+# --------------------------
+
+# the initial energy that the quark carries before starting evolution (in GeV)
+# usually set to be characteristic of a proton-proton subprocess, ~1 GeV
+InitialEvolEnergy=1000.0
+
+# whether to fix the factorization scale throughout the
+# evolution or vary it with the evolution scale
+# NOTE: fixing the scale misses out on some higher order effects
+# Yes or No
+FixedScale=Yes
+
+# the energy cutoff reached before evolution stops (in Gev)
+# this is the energy scale in which perturbative QCD stops being valid
+# cannot go lower than 1.0
+EvolutionEnergyCutoff=1.0
+\end{minted}
+\caption{\textsc{ColSim}'s default configuration file, providing the default values for all input parameters.}
+\label{listing:colsim-config-file}
+\end{listing}
+
+
+
+\pagebreak
+
+\section{Listing for Gnuplot Test}\label{sec:gnuplot-listing}
+
+\begin{listing}[ht!]
+\begin{minted}{cpp}
+// required for setup of random number generator
+ColSimMain _;
+
+// create gnuplot object
+Gnuplot plot;
+
+// specify plot information
+vector<double> min{0.0}, max{3.14}, delta{3.14};
+double numBins = 25;
+plot.setHistInfo(min, max, delta, numBins);
+
+// give col/file name, open the datafile
+vector<string> colNames{"sin2_x"};
+plot.openDataFile("data.dat", colNames);
+
+// grab values of sin(x)
+// in general we take a vector of vectors
+// for multiple variables,
+// that's the reason for adding a vector
+uint numPoints = 0;
+while (numPoints < 100000) {
+	double x = randDouble() * 3.14;
+	double r = randDouble();
+	double val = sin(x)*sin(x);
+	double ratio =  val / 1.0;
+	if (r < ratio) {
+	    plot.addDataPoint(vector<double>{x});
+		numPoints++;
+	}
+}
+	
+// define the x and y labels
+vector<string> xlabel{"x"}, ylabel{"sin^2(x)"}, title{"Histogram format for sin^2(x)"};
+plot.setTitles(title);
+plot.setXLabels(xlabel);
+plot.setYLabels(ylabel);
+
+// make the plots
+plot.plot();
+\end{minted}
+\caption{Listing for the plotting of $\sin^2(x)$. Given without a main function or includes.}
+\label{listing:gnuplot-testing}
+\end{listing}
+
+
+%%% Local Variables:
+%%% mode: LaTeX
+%%% TeX-master: "../../FinalMilestone"
+%%% End:
